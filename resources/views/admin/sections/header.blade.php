@@ -37,7 +37,7 @@
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end bg-dark text-light">
-                        <a class="dropdown-item text-white" href="#"><i class="ri-user-line align-middle me-1"></i> Profile</a>
+                        <a class="dropdown-item text-white" href="{{ route('admin.profile') }}"><i class="ri-user-line align-middle me-1"></i> Profile</a>
                         <a class="dropdown-item text-white" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> My Wallet</a>
                         <a class="dropdown-item text-white" href="#"><i class="ri-settings-2-line align-middle me-1"></i> Settings</a>
                         <div class="dropdown-divider bg-white"></div>
