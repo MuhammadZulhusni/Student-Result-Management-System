@@ -20,10 +20,15 @@
 
         <!-- Bootstrap Css -->
         <link href="{{asset('backend/assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+
         <!-- Icons Css -->
         <link href="{{asset('backend/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        
         <!-- App Css-->
         <link href="{{asset('backend/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+
+        <!-- CSS custom file -->
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
         <link rel="stylesheet" href="{{ asset('backend/assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('backend/assets/css/app.min.css') }}">
@@ -102,7 +107,6 @@
                         <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
                     </div>
 
-            
                 </div>
 
             </div> <!-- end slimscroll-menu-->
