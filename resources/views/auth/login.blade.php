@@ -32,6 +32,13 @@
                 <!-- Title -->
                 <h5 class="text-center mb-4">Admin Login</h5>
 
+                <!-- Error Message -->
+                @if (session('error'))
+                    <div class="alert alert-danger mb-4" role="alert">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
                 <!-- Login Form -->
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
@@ -40,8 +47,11 @@
                         <label for="name" class="form-label">Username</label>
                         <div class="input-group">
                             <span class="input-group-text bg-light"><i class="fa fa-user text-primary"></i></span>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your username" required>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Enter your username" required>
                         </div>
+                        @error('name')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <!-- Password -->
@@ -49,8 +59,11 @@
                         <label for="password" class="form-label">Password</label>
                         <div class="input-group">
                             <span class="input-group-text bg-light"><i class="fa fa-lock text-primary"></i></span>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Enter your password" required>
                         </div>
+                        @error('password')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <!-- Remember Me -->
