@@ -1,47 +1,78 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!doctype html>
+<html lang="en">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+<head>
+    <meta charset="utf-8" />
+    <title>SRMS | Student Result Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesdesign" name="author" />
+    <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico') }}">
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="Username" :value="__('Username')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+    <!-- Bootstrap Css -->
+    <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="{{ asset('backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{{ asset('backend/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="auth-body-bg">
+    <div class="bg-overlay"></div>
+    <div class="container d-flex align-items-center justify-content-center min-vh-100">
+        <div class="card border-0 shadow-lg rounded-3 w-100" style="max-width: 450px;">
+            <div class="card-body p-4">
+                <!-- Logo -->
+                <div class="text-center mb-4">
+                    <i class="fa fa-graduation-cap text-primary" style="font-size: 3rem;"></i>
+                    <h3 class="fw-bold mt-2">SRMS</h3>
+                    <p class="text-muted">Student Result Management System</p>
+                </div>
+
+                <!-- Title -->
+                <h5 class="text-center mb-4">Admin Login</h5>
+
+                <!-- Login Form -->
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <!-- Username -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Username</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light"><i class="fa fa-user text-primary"></i></span>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your username" required>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light"><i class="fa fa-lock text-primary"></i></span>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me -->
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="customCheck1">
+                        <label class="form-check-label" for="customCheck1">Remember me</label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-sign-in-alt me-2"></i> Log In
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
+    </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    <!-- JAVASCRIPT -->
+    <script src="{{ asset('backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</body>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</html>
