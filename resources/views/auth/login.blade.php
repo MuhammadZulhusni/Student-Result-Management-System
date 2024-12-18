@@ -17,7 +17,7 @@
     <link href="{{ asset('backend/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="auth-body-bg">
+<body class="auth-body-bg" style="background-image: url('https://static.canadianjourney.blog/images/jch-optimize/ng/images_high-school-graduation.webp'); background-size: cover; background-position: center;">
     <div class="bg-overlay"></div>
     <div class="container d-flex align-items-center justify-content-center min-vh-100">
         <div class="card border-0 shadow-lg rounded-3 w-100" style="max-width: 450px;">
@@ -26,7 +26,7 @@
                 <div class="text-center mb-4">
                     <i class="fa fa-graduation-cap text-primary" style="font-size: 3rem;"></i>
                     <h3 class="fw-bold mt-2">SRMS</h3>
-                    <p class="text-muted">Student Result Management System</p>
+                    <p class="text-muted fs-5">Student Result Management System</p>
                 </div>
 
                 <!-- Title -->

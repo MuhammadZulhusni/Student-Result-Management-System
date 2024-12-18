@@ -1,0 +1,11 @@
+/* Hover effect for all items except logout */
+.dropdown-item:hover {
+    color: #007bff !important; /* Blue text on hover */
+    background-color: transparent !important; /* No background color */
+}
+
+/* Make sure "Logout" remains red on hover */
+.dropdown-item.text-danger:hover {
+    color: #dc3545 !important; /* Red color for "Logout" */
+    background-color: transparent !important; /* No background color */
+}
