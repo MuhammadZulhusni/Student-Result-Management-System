@@ -30,6 +30,9 @@
         <!-- CSS custom file -->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
         <link rel="stylesheet" href="{{ asset('backend/assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('backend/assets/css/app.min.css') }}">
     </head>
@@ -143,5 +146,8 @@
 
         <!-- App js -->
         <script src="{{asset('backend/assets/js/app.js')}}"></script>
+
+        <!-- Admin Profile js -->
+        <script src="{{asset('js/admin_profile.js')}}"></script>
     </body>
 </html>
