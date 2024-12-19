@@ -24,10 +24,17 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
-
-        $request->session()->regenerate();
-
-        return redirect()->intended(route('dashboard', absolute: false));
+        $request->authenticate();                                                               // Authenticate the admin using the credentials from the LoginRequest
+        $request->session()->regenerate();                                                      // Regenerate the session to protect against session fixation attacks
+    
+        // Notification message
+        $notification = array(
+            'message' => 'Admin Login Successfully!',                                           // Success message
+            'alert-type' => 'success'                                                           // Alert type for success
+        );
+    
+        // Redirect to the intended route (usually the dashboard) with the success notification
+        return redirect()->intended(route('dashboard', absolute: false))->with($notification);  
     }
+    
 }
