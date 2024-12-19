@@ -35,6 +35,11 @@ Route::controller(AdminController::class)->group(function(){
     // URL: 'admin/password/change'
     // Calls the 'AdminPasswordChange' method in AdminController
     Route::get('admin/password/change', 'AdminPasswordChange')->name('admin.password.change');
+
+    // Route to handle admin password update submissions
+    // URL: 'admin/password/update'
+    // Calls the 'AdminPasswordUpdate' method in AdminController
+    Route::post('admin/password/update', 'AdminPasswordUpdate')->name('admin.password.update');
 });
 
 Route::middleware('auth')->group(function () {

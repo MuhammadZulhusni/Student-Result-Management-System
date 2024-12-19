@@ -35,7 +35,7 @@
 
                     <hr class="my-4"> <!-- Horizontal line after the card header -->
 
-                    <form action="{{ route('admin.password.change') }}" method="POST">
+                    <form action="{{ route('admin.password.update') }}" method="POST"> <!-- Form to submit password update to 'admin.password.update' route -->
                         @csrf
                         <div class="row g-4">
                             <!-- Old Password Field -->
