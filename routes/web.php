@@ -30,6 +30,11 @@ Route::controller(AdminController::class)->group(function(){
     // URL: 'admin/profile/update'
     // Calls the 'AdminProfileUpdate' method in AdminController
     Route::post('admin/profile/update', 'AdminProfileUpdate')->name('admin.profile.update');
+
+    // Route to handle admin password change page
+    // URL: 'admin/password/change'
+    // Calls the 'AdminPasswordChange' method in AdminController
+    Route::get('admin/password/change', 'AdminPasswordChange')->name('admin.password.change');
 });
 
 Route::middleware('auth')->group(function () {
