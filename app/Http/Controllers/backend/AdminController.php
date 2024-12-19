@@ -70,3 +70,6 @@ class AdminController extends Controller
 // 1) 'Request $request' 
 // Use 'Request $request' parameter when need to access data sent by the client (e.g.,user inputs, files).
 // Don’t use it when you don’t need to interact with incoming request data.
+
+// 2) Laravel Breeze
+// In this project, I used laravel breeze for setup authentication (login, registration, password reset, etc.)

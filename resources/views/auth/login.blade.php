@@ -32,15 +32,8 @@
                 <!-- Title -->
                 <h5 class="text-center mb-4">Admin Login</h5>
 
-                <!-- Error Message -->
-                @if (session('error'))
-                    <div class="alert alert-danger mb-4" role="alert">
-                        {{ session('error') }}
-                    </div>
-                @endif
-
                 <!-- Login Form -->
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('login') }}"> <!-- This form sends a POST request to the 'login' route to handle the admin login -->
                     @csrf
                     <!-- Username -->
                     <div class="mb-3">
