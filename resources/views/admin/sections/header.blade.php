@@ -29,11 +29,16 @@
                     </button>
                 </div>
                 
+                @php
+                    $adminData = App\Models\User::findOrFail(Illuminate\Support\Facades\Auth::user()->id);  // Retrieve the authenticated admin's data from the database  
+                @endphp
+
                 <!-- User Dropdown -->
                 <div class="dropdown d-inline-block user-dropdown ms-3">
                     <button type="button" class="btn header-item waves-effect text-white" id="page-header-user-dropdown" data-bs-toggle="dropdown">
-                        <img class="rounded-circle header-profile-user" src="{{asset('backend/assets/images/users/avatar-1.jpg')}}" alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1">Julia</span>
+                        <!-- Display admin's profile photo, fallback to 'no_image.png' if not set -->
+                        <img class="rounded-circle header-profile-user" src="{{ empty($adminData->photo)? asset('uploads/no_image.png') : asset('uploads/admin_profiles/' .$adminData->photo) }}" alt="Header Avatar">
+                        <span class="d-none d-xl-inline-block ms-1">{{$adminData->name}}</span>  <!-- Display admin's name -->
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end bg-dark text-light">

@@ -1,13 +1,21 @@
-<!-- ========== Left Sidebar Start ========== -->
+@php
+    $adminData = App\Models\User::findOrFail(Illuminate\Support\Facades\Auth::user()->id);  // Retrieve the authenticated admin's data from the database   
+@endphp
+
 <div class="vertical-menu p-3" id="sidebar" style="background-color: rgba(42, 10, 69);">
     <div data-simplebar class="h-100">
         <!-- User details -->
         <div class="user-profile text-center mt-3">
             <div>
-                <img src="{{asset('backend/assets/images/users/avatar-1.jpg')}}" alt="User Avatar" class="avatar-md rounded-circle border border-white">
+                <!-- Display admin's profile photo, fallback to 'no_image.png' if not set -->
+                <img src="{{ empty($adminData->photo) ? asset('uploads/no_image.png') : asset('uploads/admin_profiles/' . $adminData->photo) }}" alt="User Avatar" class="avatar-md rounded-circle border border-white">
             </div>
             <div class="mt-3">
-                <h4 class="font-size-16 mb-1 text-white">Julia Hudda</h4>
+                <h4 class="font-size-16 mb-1 text-white">{{ $adminData->name }}</h4>                         <!-- Display admin's name -->
+                <!-- Email with icon -->
+                <p class="font-size-14 mb-0 text-muted">
+                    <i class="bi bi-envelope-fill me-2" style="color: white;"></i>{{ $adminData->email }}      <!-- Display admin's email -->
+                </p>
             </div>
         </div>
 
