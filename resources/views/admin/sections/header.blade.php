@@ -42,7 +42,7 @@
                         <a class="dropdown-item text-white" href="#"><i class="ri-settings-2-line align-middle me-1"></i> Settings</a>
                         <div class="dropdown-divider bg-white"></div>
                         <!-- "Logout" item will have the red color, even on hover -->
-                        <a class="dropdown-item text-danger" href="{{route('admin.logout')}}">
+                        <a class="dropdown-item text-danger" href="{{route('admin.logout')}}"> <!-- Link to log out the admin -->
                             <i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout
                         </a>
                     </div>
