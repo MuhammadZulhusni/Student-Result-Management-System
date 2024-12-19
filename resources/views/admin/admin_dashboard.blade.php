@@ -21,6 +21,9 @@
         <!-- Bootstrap Css -->
         <link href="{{asset('backend/assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
 
+        <!-- Bootstrap Icons CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
         <!-- Icons Css -->
         <link href="{{asset('backend/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         
