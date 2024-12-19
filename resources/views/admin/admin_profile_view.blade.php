@@ -26,7 +26,7 @@
             <div class="card border-0 shadow-lg">
                 <div class="card-body p-5">
                     <div class="mb-4">
-                        <h4 class="card-title mb-0"><i class="ri-user-3-line me-2"></i> Update Admin Profile</h4>
+                        <h4 class="card-title mb-2"><i class="ri-user-3-line me-2"></i> Update Admin Profile</h4>
                         <p class="text-muted mb-0">Manage your personal information and keep it up-to-date.</p>
                     </div>
 

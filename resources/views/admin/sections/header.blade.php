@@ -37,9 +37,10 @@
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end bg-dark text-light">
+                        <!-- Dropdown link to the admin profile page -->
                         <a class="dropdown-item text-white" href="{{ route('admin.profile') }}"><i class="ri-user-line align-middle me-1"></i> Profile</a>
-                        <a class="dropdown-item text-white" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> My Wallet</a>
-                        <a class="dropdown-item text-white" href="#"><i class="ri-settings-2-line align-middle me-1"></i> Settings</a>
+                        <!-- Dropdown link to the admin password change page -->
+                        <a class="dropdown-item text-white" href="{{ route('admin.password.change') }}"><i class="ri-settings-2-line align-middle me-1"></i>Change Password</a>
                         <div class="dropdown-divider bg-white"></div>
                         <!-- "Logout" item will have the red color, even on hover -->
                         <a class="dropdown-item text-danger" href="{{route('admin.logout')}}"> <!-- Link to log out the admin -->

@@ -63,10 +63,15 @@ class AdminController extends Controller
 
         return redirect()->back()->with($notification);                                        // Redirect back to the previous page with the success notification
     }
+
+    /**
+     * Method to display the admin password change page
+     * Returns the 'admin_password_change.php' view
+     */
+    public function AdminPasswordChange(){
+        return view('admin.admin_password_change');
+    }
 }
-
-
-
 
 
 
