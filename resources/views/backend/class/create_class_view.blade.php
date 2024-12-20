@@ -31,7 +31,7 @@
                         <p class="text-muted mb-0">Fill in the details to add a new student class and section.</p>
                     </div>
 
-                    <form action="{{ route('create.class') }}" method="POST">
+                    <form action="{{ route('store.class') }}" method="POST">
                         @csrf
                         <div class="row g-3">
                             <!-- Class Name -->
