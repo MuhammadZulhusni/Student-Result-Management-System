@@ -80,7 +80,7 @@
 
                         <!-- Action Buttons -->
                         <div class="text-center mt-5">
-                            <button type="submit" class="btn text-white fw-bold w-50 py-3" style="background-color: rgba(42, 10, 69);">
+                            <button type="submit" class="btn text-white fw-bold w-50 " style="background-color: rgba(42, 10, 69);">
                                 Change Password
                             </button>
                         </div>
