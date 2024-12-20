@@ -23,7 +23,7 @@
         <div id="sidebar-menu" class="mt-4">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title text-white">Menu</li>
+                <li class="menu-title text-white">MAIN CATEGORY</li>
 
                 <li>
                     <a href="{{ route('dashboard') }}" class="waves-effect text-white">
@@ -32,17 +32,16 @@
                     </a>
                 </li>
 
-                <li class="menu-title text-white mt-4">Pages</li>
+                <li class="menu-title text-white mt-4">APPEARANCE</li>
 
                 <!-- Authentication Dropdown -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect text-white">
                         <i class="ri-account-circle-line text-white"></i>
-                        <span>Authentication</span>
+                        <span>Student Classes</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="auth-login.html" class="text-white">Login</a></li>
-                        <li><a href="auth-register.html" class="text-white">Register</a></li>
+                        <li><a href="{{route('create.class')}}" class="text-white">Create Class</a></li>
                     </ul>
                 </li>
 

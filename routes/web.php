@@ -1,8 +1,9 @@
 <?php
 // Any changes happened just run "php artisan optimize"
-use App\Http\Controllers\backend\AdminController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\backend\AdminController;
+use App\Http\Controllers\backend\ClassesController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,6 +41,14 @@ Route::controller(AdminController::class)->group(function(){
     // URL: 'admin/password/update'
     // Calls the 'AdminPasswordUpdate' method in AdminController
     Route::post('admin/password/update', 'AdminPasswordUpdate')->name('admin.password.update');
+});
+
+// Grouped routes for 'ClassesController.php'
+Route::controller(ClassesController::class)->group(function(){
+    // Route for create class page
+    // URL: 'create/class'
+    // Calls the 'CreateClass' method in ClassesController
+    Route::get('create/class', 'CreateClass')->name('create.class');
 });
 
 Route::middleware('auth')->group(function () {
