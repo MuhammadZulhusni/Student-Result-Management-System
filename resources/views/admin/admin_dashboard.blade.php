@@ -158,27 +158,28 @@
 
         <!-- Toaster -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-        <script>
-        @if(Session::has('message'))
-            var type = "{{ Session::get('alert-type','info') }}"
-            switch(type){
-                case 'info':
-                toastr.info(" {{ Session::get('message') }} ");
-                break;
 
-                case 'success':
-                toastr.success(" {{ Session::get('message') }} ");
-                break;
+        @if(session()->has('message'))
+            <script>
+                var type = "{{ session()->get('alert-type', 'info') }}";
+                switch (type) {
+                    case 'info':
+                        toastr.info("{{ session()->get('message') }}");
+                        break;
 
-                case 'warning':
-                toastr.warning(" {{ Session::get('message') }} ");
-                break;
+                    case 'success':
+                        toastr.success("{{ session()->get('message') }}");
+                        break;
 
-                case 'error':
-                toastr.error(" {{ Session::get('message') }} ");
-                break; 
-            }
-        @endif 
-        </script>
+                    case 'warning':
+                        toastr.warning("{{ session()->get('message') }}");
+                        break;
+
+                    case 'error':
+                        toastr.error("{{ session()->get('message') }}");
+                        break;
+                }
+            </script>
+        @endif
     </body>
 </html>

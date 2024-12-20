@@ -14,7 +14,7 @@
                 <h4 class="font-size-16 mb-1 text-white">{{ $adminData->name }}</h4>                         <!-- Display admin's name -->
                 <!-- Email with icon -->
                 <p class="font-size-14 mb-0 text-muted">
-                    <i class="bi bi-envelope-fill me-2" style="color: white;"></i>{{ $adminData->email }}      <!-- Display admin's email -->
+                    <i class="bi bi-envelope-fill me-2" style="color: gray;"></i>{{ $adminData->email }}       <!-- Display admin's email -->
                 </p>
             </div>
         </div>
@@ -26,7 +26,7 @@
                 <li class="menu-title text-white">Menu</li>
 
                 <li>
-                    <a href="index.html" class="waves-effect text-white">
+                    <a href="{{ route('dashboard') }}" class="waves-effect text-white">
                         <i class="ri-dashboard-line text-white"></i>
                         <span>Dashboard</span>
                     </a>
