@@ -28,4 +28,10 @@ class ClassesController extends Controller
 
         return redirect()->back()->with($notification);                   // Redirect back to the previous page with the success notification
     }
+
+    public function ManageClasses(Request $request)
+    {
+        $classes = classes::all();                                                                  // Retrieve all class records from the database
+        return view('backend.class.manage_classes_view', compact('classes')); // Pass the class data to the view
+    }
 }

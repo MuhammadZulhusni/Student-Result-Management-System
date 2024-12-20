@@ -43,9 +43,9 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end bg-dark text-light">
                         <!-- Dropdown link to the admin profile page -->
-                        <a class="dropdown-item text-white" href="{{ route('admin.profile') }}"><i class="ri-user-line align-middle me-1"></i> Profile</a>
+                        <a class="dropdown-item text-white" href="{{ route('admin.profile') }}"><i class="ri-user-line align-middle me-2"></i> Profile</a>
                         <!-- Dropdown link to the admin password change page -->
-                        <a class="dropdown-item text-white" href="{{ route('admin.password.change') }}"><i class="ri-settings-2-line align-middle me-1"></i>Change Password</a>
+                        <a class="dropdown-item text-white" href="{{ route('admin.password.change') }}"><i class="ri-settings-2-line align-middle me-2"></i>Change Password</a>
                         <div class="dropdown-divider bg-white"></div>
                         <!-- "Logout" item will have the red color, even on hover -->
                         <a class="dropdown-item text-danger" href="{{route('admin.logout')}}"> <!-- Link to log out the admin -->

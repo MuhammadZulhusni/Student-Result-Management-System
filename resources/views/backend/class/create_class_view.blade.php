@@ -9,8 +9,8 @@
                 <h4 class="mb-sm-0 fw-bold text-uppercase">Create Student Classes</h4>
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Create Classes</li>
+                        <li class="breadcrumb-item"><a href="#">Create</a></li>
+                        <li class="breadcrumb-item active">Classes</li>
                     </ol>
                 </div>
             </div>
@@ -63,8 +63,8 @@
 
                         <!-- Submit Button -->
                         <div class="text-center mt-4">
-                            <button type="submit" class="btn fw-bold w-100 py-2" style="background-color: rgba(42, 10, 69); color: white;">
-                                <i class="ri-add-line me-2"></i>Create Class
+                            <button type="submit" class="btn fw-bold w-50 py-2" style="background-color: rgba(42, 10, 69); color: white;">
+                                <i class="bi bi-plus-square me-2"></i>Create Class
                             </button>
                         </div>
                     </form>

@@ -48,12 +48,17 @@ Route::controller(ClassesController::class)->group(function(){
     // Route for create class page
     // URL: 'create/class'
     // Calls the 'CreateClass' method in ClassesController
-    Route::post('create/class', 'CreateClass')->name('create.class');
+    Route::get('create/class', 'CreateClass')->name('create.class');
 
-    // Route to handle storing a new class
+    // Route for storing class data
     // URL: 'store/class'
     // Calls the 'StoreClass' method in ClassesController
     Route::post('store/class', 'StoreClass')->name('store.class');
+
+    // Route for managing classes
+    // URL: 'manage/class'
+    // Calls the 'ManageClasses' method in ClassesController
+    Route::get('manage/classes', 'ManageClasses')->name('manage.classes');
 });
 
 Route::middleware('auth')->group(function () {
