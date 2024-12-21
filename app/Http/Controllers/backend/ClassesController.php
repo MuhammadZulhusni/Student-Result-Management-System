@@ -32,6 +32,6 @@ class ClassesController extends Controller
     public function ManageClasses(Request $request)
     {
         $classes = classes::all();                                                                  // Retrieve all class records from the database
-        return view('backend.class.manage_classes_view', compact('classes')); // Pass the class data to the view
+        return view('backend.class.manage_classes_view', compact('classes')); // Pass the class data to the view | 'classes' is the variable name.
     }
 }
