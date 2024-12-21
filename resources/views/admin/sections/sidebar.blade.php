@@ -34,14 +34,25 @@
 
                 <li class="menu-title text-white mt-4">APPEARANCE</li>
 
-                <!-- Authentication Dropdown -->
+                <!-- Student Classes Dropdown -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect text-white">
                         <i class="ri-account-circle-line text-white"></i>
                         <span>Student Classes</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('create.class')}}" class="text-white">Create Class</a></li>
+                        <!-- Create Class -->
+                        <li>
+                            <a href="{{ route('create.class') }}" class="text-white">
+                                <i class="ri-add-circle-line me-2"></i>Create Class
+                            </a>
+                        </li>
+                        <!-- Manage Class -->
+                        <li>
+                            <a href="{{ route('manage.classes') }}" class="text-white">
+                                <i class="ri-edit-line me-2"></i>Manage Class
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
