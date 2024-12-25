@@ -17,53 +17,51 @@
         </div>
     </div>
 
-    <hr class="my-4"> <!-- Horizontal line after page title -->
+    <hr class="my-4">
 
     <!-- Form Section -->
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-            <div class="card border-0" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                <div class="card-body p-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card border-0 shadow-lg rounded">
+                <div class="card-body p-5">
                     <div class="mb-4 text-center">
-                        <h5 class="card-title fw-bold text-uppercase mb-2" style="color: #2A0A45;">
-                            <i class="ri-pencil-line me-2"></i>Create Student Class
+                        <h5 class="card-title fw-bold text-uppercase" style="color: #2A0A45;">
+                            Create Student Class
                         </h5>
-                        <p class="text-muted mb-0">Fill in the details to add a new student class and section.</p>
+                        <p class="text-muted">Fill in the details to add a new student class and section.</p>
                     </div>
 
                     <form action="{{ route('store.class') }}" method="POST">
                         @csrf
-                        <div class="row g-3">
+                        <div class="mb-3">
                             <!-- Class Name -->
-                            <div class="col-md-12">
-                                <label for="className" class="form-label fw-semibold">
-                                    <i class="ri-bookmark-line me-2"></i>Class Name
-                                </label>
-                                <div class="input-group">
-                                    <span class="input-group-text" style="background-color: rgba(42, 10, 69); color: white;">
-                                        <i class="ri-book-line"></i>
-                                    </span>
-                                    <input type="text" id="className" name="class_name" class="form-control" placeholder="Eg: First, Second, Third" required>
-                                </div>
+                            <label for="className" class="form-label fw-semibold">
+                                <i class="ri-pencil-line me-2"></i>Class Name
+                            </label>
+                            <div class="input-group shadow-sm">
+                                <span class="input-group-text" style="background-color: rgba(42, 10, 69); color: white;">
+                                    <i class="ri-book-line"></i>
+                                </span>
+                                <input type="text" id="className" name="class_name" class="form-control" placeholder="Eg: First, Second, Third" required>
                             </div>
+                        </div>
 
+                        <div class="mb-3">
                             <!-- Section -->
-                            <div class="col-md-12">
-                                <label for="sectionName" class="form-label fw-semibold">
-                                    <i class="ri-layout-line me-2"></i>Section
-                                </label>
-                                <div class="input-group">
-                                    <span class="input-group-text" style="background-color: rgba(42, 10, 69); color: white;">
-                                        <i class="ri-grid-line"></i>
-                                    </span>
-                                    <input type="text" id="sectionName" name="section" class="form-control" placeholder="Eg: A, B, C" required>
-                                </div>
+                            <label for="sectionName" class="form-label fw-semibold">
+                                <i class="ri-layout-line me-2"></i>Section
+                            </label>
+                            <div class="input-group shadow-sm">
+                                <span class="input-group-text" style="background-color: rgba(42, 10, 69); color: white;">
+                                    <i class="ri-grid-line"></i>
+                                </span>
+                                <input type="text" id="sectionName" name="section" class="form-control" placeholder="Eg: A, B, C" required>
                             </div>
                         </div>
 
                         <!-- Submit Button -->
                         <div class="text-center mt-4">
-                            <button type="submit" class="btn fw-bold w-50 py-2" style="background-color: rgba(42, 10, 69); color: white;">
+                            <button type="submit" class="btn fw-bold w-100 py-2 shadow" style="background-color: rgba(42, 10, 69); color: white;">
                                 <i class="bi bi-plus-square me-2"></i>Create Class
                             </button>
                         </div>
