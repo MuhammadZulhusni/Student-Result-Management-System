@@ -59,6 +59,16 @@ Route::controller(ClassesController::class)->group(function(){
     // URL: 'manage/class'
     // Calls the 'ManageClasses' method in ClassesController
     Route::get('manage/classes', 'ManageClasses')->name('manage.classes');
+
+    // Route for editing a student's details
+    // URL: 'edit/student/{id}'
+    // Calls the 'EditStudent' method in the respective controller
+    Route::get('edit/class/{id}', 'EditClass')->name('edit.class');
+
+    // Route for updating class details
+    // URL: 'update/class'
+    // Calls the 'UpdateClass' method in the respective controller
+    Route::post('update/class', 'UpdateClass')->name('update.class');
 });
 
 Route::middleware('auth')->group(function () {
