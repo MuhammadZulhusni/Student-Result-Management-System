@@ -60,4 +60,23 @@ class ClassesController extends Controller
 
         return redirect()->route('manage.classes')->with($notification);   // Redirect to manage.class page with the success notification
     }
+
+    // Deletes a class record from the database
+    public function DeleteClass($id)
+    {
+        classes::find($id)->delete();                                      // Finds the class by its ID and removes it from the 'classes' table
+
+
+        // Notification message
+        $notification = array(
+            'message' => 'Student Class Deleted Successfully!',                // Success message
+            'alert-type' => 'success'                                          // Alert type for success
+        );
+
+        return redirect()->back()->with($notification);   // Redirect previous page with the success notification
+    }
 }
+
+
+// PERSONAL NOTE
+// 1) If passed in parameter, need to $id in that parameter of method.

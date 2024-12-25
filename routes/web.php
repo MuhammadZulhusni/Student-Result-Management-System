@@ -69,6 +69,11 @@ Route::controller(ClassesController::class)->group(function(){
     // URL: 'update/class'
     // Calls the 'UpdateClass' method in the respective controller
     Route::post('update/class', 'UpdateClass')->name('update.class');
+
+    // Route for deleting a class
+    // URL: 'delete/class/{id}'
+    // Calls the 'DeleteClass' method in the ClassesController
+    Route::get('delete/class/{id}', 'DeleteClass')->name('delete.class');
 });
 
 Route::middleware('auth')->group(function () {
