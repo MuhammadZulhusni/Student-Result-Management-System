@@ -41,8 +41,12 @@
                     <td class="px-6 py-4 text-sm text-gray-700">{{ $class->section }}</td>    <!-- Display the section of the class -->
                     <td class="px-6 py-4 text-sm text-gray-700">{{ \Carbon\Carbon::parse($class->created_at)->format('F j, Y') }}</td> <!-- Format and display the creation date of the class -->
                     <td class="px-6 py-4 text-center">
-                        <!-- Edit button with an icon -->
-                        <a href="#" class="btn btn-sm btn-primary me-2 transform transition-all duration-300 hover:scale-110"> 
+                        <!-- 
+                        Edit button with an icon,
+                        Link to the edit class page,
+                        Generates a URL for the 'edit.class' route with the class ID as a parameter
+                        -->
+                        <a href="{{route('edit.class', $class->id)}}" class="btn btn-sm btn-primary me-2 transform transition-all duration-300 hover:scale-110"> 
                             <img src="https://cdn-icons-png.flaticon.com/128/2040/2040995.png" alt="Edit" style="width: 20px; height: 20px;"/>
                         </a>
                         <!-- Delete button -->
