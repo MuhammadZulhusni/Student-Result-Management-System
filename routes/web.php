@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\ClassesController;
+use App\Http\Controllers\backend\SubjectController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -74,6 +75,14 @@ Route::controller(ClassesController::class)->group(function(){
     // URL: 'delete/class/{id}'
     // Calls the 'DeleteClass' method in the ClassesController
     Route::get('delete/class/{id}', 'DeleteClass')->name('delete.class');
+});
+
+// Grouped routes for 'SubjectController.php'
+Route::controller(SubjectController::class)->group(function(){
+    // Route for create subject page
+    // URL: 'create/subject'
+    // Calls the 'CreateSubject' method in SubjectController
+    Route::get('create/subject', 'CreateSubject')->name('create.subject');
 });
 
 Route::middleware('auth')->group(function () {

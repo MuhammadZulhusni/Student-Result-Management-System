@@ -60,11 +60,10 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect text-white">
                         <i class="ri-profile-line text-white"></i>
-                        <span>Utility</span>
+                        <span>Subjects</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="pages-starter.html" class="text-white">Starter Page</a></li>
-                        <li><a href="pages-timeline.html" class="text-white">Timeline</a></li>
+                        <li><a href="{{ route('create.subject') }}" class="text-white">Create Subject</a></li>
                     </ul>
                 </li>
             </ul>
