@@ -88,7 +88,10 @@ Route::controller(SubjectController::class)->group(function(){
     // Calls the 'EditSubject' method in the respective controller
     // Put {id} because in view file already pass the ID 
     Route::get('edit/subject/{id}', 'EditSubject')->name('edit.subject');
-    
+    // Route for updating subject details
+    // URL: 'update/subject'
+    // Calls the 'UpdateSubject' method in the respective controller
+    Route::post('update/subject', 'UpdateSubject')->name('update.subject');
 });
 
 Route::middleware('auth')->group(function () {

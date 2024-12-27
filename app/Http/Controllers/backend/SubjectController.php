@@ -43,4 +43,23 @@ class SubjectController extends Controller
         // echo $subject;
         return view('backend.subject.edit_subject_view', compact('subject'));       // Return the edit view with subject data
     }
+
+    // Controller method to handle updating a subject
+    // Updates the subject record with the given ID using the submitted form data
+    public function UpdateSubject(Request $request)
+    {
+        $id = $request->id;
+        Subject::find($id)->update([                    // Find the subject by ID and update its details
+            'subject_name' => $request->subject_name,       // Update the subject name
+            'subject_code' => $request->subject_code        // Update the subject code
+        ]);
+
+        // Notification message
+        $notification = array(
+            'message' => 'Subject Updated Successfully!',         // Success message
+            'alert-type' => 'success'                             // Alert type for success
+        );
+
+        return redirect()->route('manage.subjects')->with($notification);      // Redirect to manage subjects page with the success notification
+    }
 }
