@@ -92,6 +92,10 @@ Route::controller(SubjectController::class)->group(function(){
     // URL: 'update/subject'
     // Calls the 'UpdateSubject' method in the respective controller
     Route::post('update/subject', 'UpdateSubject')->name('update.subject');
+    // Route for deleting a subject
+    // URL: 'delete/subject/{id}'
+    // Calls the 'DeleteSubject' method in the SubjectController
+    Route::get('delete/subject/{id}', 'DeleteSubject')->name('delete.subject');
 });
 
 Route::middleware('auth')->group(function () {
