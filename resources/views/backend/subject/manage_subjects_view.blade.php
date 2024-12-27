@@ -46,7 +46,7 @@
                         <!-- 
                         Edit button with an icon,
                         -->
-                        <a href="#" class="btn btn-sm btn-primary me-2 transform transition-all duration-300 hover:scale-110"> 
+                        <a href="{{route('edit.subject', $subject->id)}}" class="btn btn-sm btn-primary me-2 transform transition-all duration-300 hover:scale-110"> 
                             <img src="https://cdn-icons-png.flaticon.com/128/2040/2040995.png" alt="Edit" style="width: 20px; height: 20px;"/>
                         </a>
                         <!-- Delete button -->
