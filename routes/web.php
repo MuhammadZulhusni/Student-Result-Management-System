@@ -83,6 +83,11 @@ Route::controller(SubjectController::class)->group(function(){
     // URL: 'create/subject'
     // Calls the 'CreateSubject' method in SubjectController
     Route::get('create/subject', 'CreateSubject')->name('create.subject');
+    // Route for storing subject data
+    // URL: 'store/subject'
+    // Calls the 'StoreSubject' method in SubjectController
+    Route::post('store/subject', 'StoreSubject')->name('store.subject');
+    
 });
 
 Route::middleware('auth')->group(function () {

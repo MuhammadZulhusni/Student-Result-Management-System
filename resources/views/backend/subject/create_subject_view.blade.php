@@ -31,7 +31,7 @@
                         <p class="text-muted">Fill in the details to add a new subject and its code.</p>
                     </div>
 
-                    <form action="{{ route('store.class') }}" method="POST">
+                    <form action="{{ route('store.subject') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <!-- Subject Name -->
