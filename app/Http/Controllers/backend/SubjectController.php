@@ -8,7 +8,7 @@ use App\Models\Subject;
 
 class SubjectController extends Controller
 {
-    // Method for display page create subject
+    // Method for display page 'create subject'
     public function CreateSubject()
     {
         return view('backend.subject.create_subject_view');
@@ -29,5 +29,11 @@ class SubjectController extends Controller
         );
 
         return redirect()->back()->with($notification);                     // Redirect previous page with the success notification
+    }
+
+    public function ManageSubjects(Request $request)
+    {
+        $subjects = Subject::all();                                                                     // Retrieve all class records from the database
+        return view('backend.subject.manage_subjects_view', compact('subjects')); // Pass the class data to the view | 'classes' is the variable name.
     }
 }

@@ -56,14 +56,17 @@
                     </ul>
                 </li>
 
-                <!-- Utility Dropdown -->
+                <!-- Subjects Dropdown -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect text-white">
                         <i class="ri-profile-line text-white"></i>
                         <span>Subjects</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
+                        <!-- Create Subject -->
                         <li><a href="{{ route('create.subject') }}" class="text-white">Create Subject</a></li>
+                        <!-- Manage Subjects -->
+                        <li><a href="{{ route('manage.subjects') }}" class="text-white">Manage Subjects</a></li>
                     </ul>
                 </li>
             </ul>
