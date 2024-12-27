@@ -28,7 +28,7 @@ class SubjectController extends Controller
             'alert-type' => 'success'                                            // Alert type for success
         );
 
-        return redirect()->back()->with($notification);                     // Redirect previous page with the success notification
+        return redirect()->route('manage.subjects')->with($notification);   // Redirect previous page with the success notification
     }
 
     public function ManageSubjects(Request $request)
@@ -62,4 +62,18 @@ class SubjectController extends Controller
 
         return redirect()->route('manage.subjects')->with($notification);      // Redirect to manage subjects page with the success notification
     }
+
+        // Deletes a subject record from the database
+        public function DeleteSubject($id)
+        {
+            Subject::find($id)->delete();                                       // Finds the subject by its ID and removes it from the 'subjects' table
+    
+            // Notification message
+            $notification = array(
+                'message' => 'Subject Deleted Successfully!',                       // Success message
+                'alert-type' => 'success'                                           // Alert type for success
+            );
+    
+            return redirect()->back()->with($notification);   // Redirect previous page with the success notification
+        }
 }
