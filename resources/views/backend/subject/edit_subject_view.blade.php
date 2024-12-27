@@ -31,10 +31,11 @@
                         <p class="text-muted">Modify the details of the subject below.</p>
                     </div>
 
-                    <form action="{{ route('edit.subject', $subject->id) }}" method="POST">
+                    <form action="{{ route('update.subject') }}" method="POST">
                         @csrf
-                        @method('PUT')
-
+                        <!-- Hidden input to store the subject ID -->
+                        <!-- This ensures the ID of the subject being updated is sent with the form -->
+                        <input type="hidden" name="id" value="{{ $subject->id }}">
                         <div class="mb-3">
                             <!-- Subject Name -->
                             <label for="subjectName" class="form-label fw-semibold">
