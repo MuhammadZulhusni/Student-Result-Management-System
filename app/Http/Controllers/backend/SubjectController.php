@@ -33,7 +33,14 @@ class SubjectController extends Controller
 
     public function ManageSubjects(Request $request)
     {
-        $subjects = Subject::all();                                                                     // Retrieve all class records from the database
-        return view('backend.subject.manage_subjects_view', compact('subjects')); // Pass the class data to the view | 'classes' is the variable name.
+        $subjects = Subject::all();                                                                     // Retrieve all Subject records from the database
+        return view('backend.subject.manage_subjects_view', compact('subjects')); // Pass the subjects data to the view | 'subjects' is the variable name.
+    }
+
+    public function EditSubject($id)
+    {
+        $subject = Subject::find($id);                                                                // Retrieve the subject with the specified ID
+        // echo $subject;
+        return view('backend.subject.edit_subject_view', compact('subject'));       // Return the edit view with subject data
     }
 }

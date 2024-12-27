@@ -57,6 +57,7 @@ Route::controller(ClassesController::class)->group(function(){
     // Route for editing a student's details
     // URL: 'edit/student/{id}'
     // Calls the 'EditStudent' method in the respective controller
+    // Put {id} because in view file already pass the ID 
     Route::get('edit/class/{id}', 'EditClass')->name('edit.class');
     // Route for updating class details
     // URL: 'update/class'
@@ -82,6 +83,11 @@ Route::controller(SubjectController::class)->group(function(){
     // URL: 'manage/subjects'
     // Calls the 'ManageSubjects' method in SubjectController
     Route::get('manage/subjects', 'ManageSubjects')->name('manage.subjects');
+    // Route for editing a subject details
+    // URL: 'edit/subject/{id}'
+    // Calls the 'EditSubject' method in the respective controller
+    // Put {id} because in view file already pass the ID 
+    Route::get('edit/subject/{id}', 'EditSubject')->name('edit.subject');
     
 });
 
