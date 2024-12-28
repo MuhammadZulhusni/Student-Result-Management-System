@@ -162,6 +162,9 @@
         <!-- Admin Profile js -->
         <script src="{{asset('js/admin_profile.js')}}"></script>
 
+        <!-- Add Subject Combination -->
+        <script src="{{asset('js/subject_combination.js')}}"></script>
+
         <!-- Toaster -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>

@@ -59,14 +59,27 @@
                 <!-- Subjects Dropdown -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect text-white">
-                        <i class="ri-profile-line text-white"></i>
-                        <span>Subjects</span>
+                        <i class="ri-book-line"></i>&nbsp;<span>Subjects</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <!-- Create Subject -->
-                        <li><a href="{{ route('create.subject') }}" class="text-white">Create Subject</a></li>
+                        <li>
+                            <a href="{{ route('create.subject') }}" class="text-white">
+                                <i class="ri-add-line"></i>Create Subject
+                            </a>
+                        </li>
                         <!-- Manage Subjects -->
-                        <li><a href="{{ route('manage.subjects') }}" class="text-white">Manage Subjects</a></li>
+                        <li>
+                            <a href="{{ route('manage.subjects') }}" class="text-white">
+                                <i class="ri-settings-2-line"></i>Manage Subjects
+                            </a>
+                        </li>
+                        <!-- Add Subject Combination -->
+                        <li>
+                            <a href="{{ route('add.subject.combination') }}" class="text-white">
+                                <i class="ri-share-line"></i> Add Subject <span style="margin-left: 1.7rem;">Combination</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
