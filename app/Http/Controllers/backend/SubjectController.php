@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subject;
+use App\Models\classes;
 
 class SubjectController extends Controller
 {
@@ -75,5 +76,13 @@ class SubjectController extends Controller
             );
     
             return redirect()->back()->with($notification);   // Redirect previous page with the success notification
+        }
+
+        // Subject Combination All Methods
+        public function AddSubjectCombination()
+        {
+            $classes = classes::all();
+            $subjects = Subject::all();
+            return view('backend.subject.add_subject_combination_view', compact('classes', 'subjects'));
         }
 }

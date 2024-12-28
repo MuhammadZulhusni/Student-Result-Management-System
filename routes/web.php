@@ -96,6 +96,9 @@ Route::controller(SubjectController::class)->group(function(){
     // URL: 'delete/subject/{id}'
     // Calls the 'DeleteSubject' method in the SubjectController
     Route::get('delete/subject/{id}', 'DeleteSubject')->name('delete.subject');
+
+    // Subject combination all routes
+    Route::get('add/subject/combination', 'AddSubjectCombination')->name('add.subject.combination');
 });
 
 Route::middleware('auth')->group(function () {
