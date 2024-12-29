@@ -31,7 +31,7 @@
                         <p class="text-muted">Fill in the details below to add a new subject and assign it to a class.</p>
                     </div>
 
-                    <form action="{{ route('store.subject') }}" method="POST">
+                    <form action="{{ route('store.subject.combination') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <!-- Class Dropdown -->

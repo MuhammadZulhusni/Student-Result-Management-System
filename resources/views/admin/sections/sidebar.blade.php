@@ -59,7 +59,7 @@
                 <!-- Subjects Dropdown -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect text-white">
-                        <i class="ri-book-line"></i>&nbsp;<span>Subjects</span>
+                        <i class="ri-book-line text-white"></i>&nbsp;<span>Subjects</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <!-- Create Subject -->
