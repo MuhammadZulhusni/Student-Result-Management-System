@@ -99,6 +99,8 @@ Route::controller(SubjectController::class)->group(function(){
 
     // Subject combination all routes
     Route::get('add/subject/combination', 'AddSubjectCombination')->name('add.subject.combination');
+    // Route to store subject combination data
+    Route::post('store/subject/combination', 'StoreSubjectCombination')->name('store.subject.combination');
 });
 
 Route::middleware('auth')->group(function () {
