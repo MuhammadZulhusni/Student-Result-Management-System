@@ -100,7 +100,7 @@ class SubjectController extends Controller
                 'alert-type' => 'success'                               // Alert type for success
             );
 
-            return redirect()->back()->with($notification);        // Redirect previous page with the success notification
+            return redirect()->route('manage.subject.combination')->with($notification);   // Redirect to manage subject combination page with the success notification
         }
 
         public function ManageSubjectCombination()
