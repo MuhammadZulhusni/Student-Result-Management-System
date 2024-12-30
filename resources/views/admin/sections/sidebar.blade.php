@@ -80,6 +80,12 @@
                                 <i class="ri-share-line"></i> Add Subject <span style="margin-left: 1.7rem;">Combination</span>
                             </a>
                         </li>
+                        <!-- Manage Subject Combination -->
+                        <li>
+                            <a href="{{ route('manage.subject.combination') }}" class="text-white">
+                                <i class="bi bi-kanban"></i> Manage Subject <span style="margin-left: 1.7rem;">Combination</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
