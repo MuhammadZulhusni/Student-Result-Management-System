@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Subject;
 use App\Models\classes;
+use App\Models\Subject;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class SubjectController extends Controller
 {
@@ -101,4 +102,22 @@ class SubjectController extends Controller
 
             return redirect()->back()->with($notification);        // Redirect previous page with the success notification
         }
+
+        public function ManageSubjectCombination()
+        {
+            // Query to fetch data from the 'classes_subject' table, with joined data from 'classes' and 'subjects'
+            $results = DB::table('classes_subject')
+                ->join('classes', 'classes_subject.classes_id', '=', 'classes.id')   // Joining 'classes' table on 'classes_id' column from 'classes_subject' and 'id' column from 'classes'
+                ->join('subjects', 'classes_subject.subject_id', '=', 'subjects.id') // Joining 'subjects' table on 'subject_id' column from 'classes_subject' and 'id' column from 'subjects'
+                ->select(
+                    'classes_subject.*',        // All columns from the 'classes_subject' table
+                    'classes.class_name',                // 'class_name' column from the 'classes' table
+                    'classes.section',                   // 'section' column from the 'classes' table
+                    'subjects.subject_name'              // 'subject_name' column from the 'subjects' table
+                )
+                ->get(); // Fetching the results as a collection
+        
+            return view('backend.subject.manage_subject_combination', compact('results'));
+        }
+        
 }
