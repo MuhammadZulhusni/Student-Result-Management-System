@@ -56,8 +56,8 @@
                 <td class="px-3 py-2 text-center">
                     <!-- Edit button with icon -->
                     <a href="{{ route('edit.subject', $result->id) }}" 
-                    class="btn btn-sm btn-primary transform transition-all duration-300 hover:scale-110">
-                        <i class="fas fa-check" style="font-size: 20px;"></i>  
+                        class="btn btn-sm btn-primary transform transition-all duration-300 hover:scale-110 flex items-center justify-center p-2 rounded-full shadow-lg hover:bg-blue-600">
+                        <img src="https://cdn-icons-png.flaticon.com/128/18606/18606173.png" alt="Check" style="width: 22px; height: 22px;" /> 
                     </a>
                 </td>
             </tr>
