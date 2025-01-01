@@ -88,6 +88,23 @@
                         </li>
                     </ul>
                 </li>
+
+                <!-- Student Dropdown -->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect text-white">
+                        <i class="ri-user-3-line text-white"></i> 
+                        <span>Students</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <!-- Add student -->
+                        <li>
+                            <a href="{{ route('add.student') }}" class="text-white">
+                                <i class="ri-user-add-line me-2"></i> 
+                                Add student
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

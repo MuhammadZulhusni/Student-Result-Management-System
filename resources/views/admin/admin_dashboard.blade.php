@@ -162,6 +162,9 @@
         <!-- Admin Profile js -->
         <script src="{{asset('js/admin_profile.js')}}"></script>
 
+        <!-- Add Student (Image Preview) js -->
+        <script src="{{asset('js/add_student.js')}}"></script>
+
         <!-- Add Subject Combination -->
         <script src="{{asset('js/subject_combination.js')}}"></script>
 
