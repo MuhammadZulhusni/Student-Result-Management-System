@@ -37,31 +37,42 @@
 
             <tbody>
             @foreach($results as $key => $result)  <!-- Loop through each subject combination -->
-            <tr class="border-b">
-                <td class="px-3 py-2 text-sm font-medium text-gray-900">{{ $key + 1 }}</td>  
-                <td class="px-3 py-2 text-sm text-gray-700">
-                    {{ $result->class_name }} | Section {{ $result->section }}  <!-- Displays the class name and section dynamically from the database -->
-                </td>
-                <td class="px-3 py-2 text-sm text-gray-700">
-                    {{ $result->subject_name }}  <!-- Displays the subject name dynamically from the database -->
-                </td>
-                <td class="px-3 py-2 text-sm text-gray-700">
-                    @if($result->status == 1) 
-                        <span class="badge bg-success text-white">Active</span>  <!-- Displays 'Active' with a green badge if status is 1 -->
-                    @else
-                        <span class="badge bg-danger text-white">Inactive</span> <!-- Displays 'Inactive' with a red badge if status is not 1 -->
-                    @endif
-                </td>
+                <tr class="border-b">
+                    <td class="px-3 py-2 text-sm font-medium text-gray-900">{{ $key + 1 }}</td>  
+                    <td class="px-3 py-2 text-sm text-gray-700">
+                        {{ $result->class_name }} | Section {{ $result->section }}  <!-- Displays the class name and section dynamically from the database -->
+                    </td>
+                    <td class="px-3 py-2 text-sm text-gray-700">
+                        {{ $result->subject_name }}  <!-- Displays the subject name dynamically from the database -->
+                    </td>
+                    <td class="px-3 py-2 text-sm text-gray-700">
+                        @if($result->status == 1) 
+                            <span class="badge bg-success text-white">Active</span>  <!-- Displays 'Active' with a green badge if status is 1 -->
+                        @else
+                            <span class="badge bg-danger text-white">Inactive</span> <!-- Displays 'Inactive' with a red badge if status is not 1 -->
+                        @endif
+                    </td>
 
-                <td class="px-3 py-2 text-center">
-                    <!-- Edit button with icon -->
-                    <a href="{{ route('edit.subject', $result->id) }}" 
-                        class="btn btn-sm btn-primary transform transition-all duration-300 hover:scale-110 flex items-center justify-center p-2 rounded-full shadow-lg hover:bg-blue-600">
-                        <img src="https://cdn-icons-png.flaticon.com/128/18606/18606173.png" alt="Check" style="width: 22px; height: 22px;" /> 
-                    </a>
-                </td>
-            </tr>
-
+                    <td class="px-3 py-2 text-center">
+                        <!-- Check if the status is 1 (Active) -->
+                        @if($result->status == 1)
+                        <!-- Create a button to deactivate the subject combination if it is active -->
+                        <!-- Display a checkmark icon to indicate an active state -->
+                            <a href="{{ route('deactivate.subject.combination', $result->id) }}" 
+                                class="btn btn-sm btn-primary transform transition-all duration-300 hover:scale-110 flex items-center justify-center p-2 rounded-full shadow-lg hover:bg-blue-600">
+                                <img src="https://cdn-icons-png.flaticon.com/128/18606/18606173.png" alt="Check" style="width: 22px; height: 22px;" /> 
+                            </a>
+                        @else
+                        <!-- If the status is not 1 (Inactive) -->
+                        <!-- Create a button to deactivate the subject combination, even if it's inactive -->
+                        <!-- Display a cross icon to indicate an inactive state -->
+                            <a href="{{ route('deactivate.subject.combination', $result->id) }}" 
+                                class="btn btn-sm btn-primary transform transition-all duration-300 hover:scale-110 flex items-center justify-center p-2 rounded-full shadow-lg hover:bg-red-600">
+                                <img src="https://cdn-icons-png.flaticon.com/128/1828/1828665.png" alt="Close" style="width: 22px; height: 22px;" /> 
+                            </a>
+                        @endif
+                    </td>
+                </tr>
             @endforeach
             </tbody>
         </table>

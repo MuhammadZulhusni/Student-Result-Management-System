@@ -119,5 +119,39 @@ class SubjectController extends Controller
         
             return view('backend.subject.manage_subject_combination', compact('results'));
         }
-        
+
+        public function DeactivateSubjectCombination($id)
+        {
+            // Retrieve the current 'status' of the row in the 'classes_subject' table for the given $id
+            $status = DB::table('classes_subject')->select('status')->where('id', $id)->first(); // Fetch a single record
+
+            // Check if the current status is 1 (active)
+            if($status->status == 1)
+                {
+                    // Update the 'status' to 0 (deactivated) in the 'classes_subject' table for the given $id
+                    DB::table('classes_subject')->where('id', $id)->update(['status' => 0]);
+
+                    // Notification message
+                    $notification = array(
+                        'message' => 'Subject De-activated Successfully!',                  // De-activated message
+                        'alert-type' => 'info'                                              // Info type for success
+                    );
+            
+                    return redirect()->back()->with($notification);                    // Redirect previous page with the success notification
+                }
+            // Check if the current status is 0 (inactive)
+            elseif($status->status == 0)
+                {
+                    // Update the 'status' to 1 (activated) in the 'classes_subject' table for the given $id
+                    DB::table('classes_subject')->where('id', $id)->update(['status' => 1]);
+
+                    // Notification message
+                    $notification = array(
+                        'message' => 'Subject activated Successfully!',                     // Activated message
+                        'alert-type' => 'info'                                              // Info type for success
+                    );
+            
+                    return redirect()->back()->with($notification);                    // Redirect previous page with the success notification
+                }
+        }       
 }
