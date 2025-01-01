@@ -103,6 +103,10 @@ Route::controller(SubjectController::class)->group(function(){
     Route::post('store/subject/combination', 'StoreSubjectCombination')->name('store.subject.combination');
     // Create route for manage subject combination
     Route::get('manage/subject/combination', 'ManageSubjectCombination')->name('manage.subject.combination');
+
+    // Deactivate subject combination
+    // Put {id} because in view file already pass the ID 
+    Route::get('deactivate/subject/combination/{id}', 'DeactivateSubjectCombination')->name('deactivate.subject.combination');
 });
 
 Route::middleware('auth')->group(function () {
