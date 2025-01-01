@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\ClassesController;
+use App\Http\Controllers\backend\StudentController;
 use App\Http\Controllers\backend\SubjectController;
 
 Route::get('/', function () {
@@ -107,6 +108,12 @@ Route::controller(SubjectController::class)->group(function(){
     // Deactivate subject combination
     // Put {id} because in view file already pass the ID 
     Route::get('deactivate/subject/combination/{id}', 'DeactivateSubjectCombination')->name('deactivate.subject.combination');
+});
+
+// Grouped routes for 'StudentController.php'
+Route::controller(StudentController::class)->group(function(){
+    // Add students page route
+    Route::get('add/student', 'AddStudent')->name('add.student');
 });
 
 Route::middleware('auth')->group(function () {
