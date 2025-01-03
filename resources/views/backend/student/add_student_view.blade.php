@@ -31,7 +31,7 @@
                         <p class="text-muted">Fill in the details below to admit a new student.</p>
                     </div>
 
-                    <form action="{{ route('add.student') }}" method="POST">
+                    <form action="{{ route('store.student') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <!-- Full Name -->
