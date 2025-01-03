@@ -114,6 +114,8 @@ Route::controller(SubjectController::class)->group(function(){
 Route::controller(StudentController::class)->group(function(){
     // Add students page route
     Route::get('add/student', 'AddStudent')->name('add.student');
+    // Store student deatils into database
+    Route::post('store/student', 'StoreStudent')->name('store.student');
 });
 
 Route::middleware('auth')->group(function () {
