@@ -103,6 +103,13 @@
                                 Add student
                             </a>
                         </li>
+                        <!-- Manage student -->
+                        <li>
+                            <a href="{{ route('manage.students') }}" class="text-white">
+                                <i class="ri-user-add-line me-2"></i> 
+                                Manage students
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
