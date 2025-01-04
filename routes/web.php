@@ -116,6 +116,8 @@ Route::controller(StudentController::class)->group(function(){
     Route::get('add/student', 'AddStudent')->name('add.student');
     // Store student deatils into database
     Route::post('store/student', 'StoreStudent')->name('store.student');
+    // Manage students page
+    Route::get('manage/students', 'ManageStudents')->name('manage.students');
 });
 
 Route::middleware('auth')->group(function () {
