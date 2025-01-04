@@ -106,8 +106,8 @@
                         <!-- Manage student -->
                         <li>
                             <a href="{{ route('manage.students') }}" class="text-white">
-                                <i class="ri-user-add-line me-2"></i> 
-                                Manage students
+                                <i class="bi bi-sliders2-vertical me-2"></i>
+                                Manage <span style="margin-left: 2.2rem;">Students</span>
                             </a>
                         </li>
                     </ul>
