@@ -50,7 +50,7 @@
                         <td class="px-6 py-4 text-sm text-gray-700">{{ $student->status }}</td> <!-- Display student status (active/inactive) -->
                         <!-- Action buttons -->
                         <td class="px-6 py-4 text-center">
-                            <a href="{{ route('manage.students', $student->id) }}" class="btn btn-sm btn-primary me-2 transform transition-all duration-300 hover:scale-110"> 
+                            <a href="{{ route('edit.student', $student->id) }}" class="btn btn-sm btn-primary me-2 transform transition-all duration-300 hover:scale-110"> 
                                 <img src="https://cdn-icons-png.flaticon.com/128/2040/2040995.png" alt="Edit" style="width: 20px; height: 20px;"/>
                             </a>
                             <a href="{{ route('manage.students', $student->id) }}" id="delete" class="btn btn-sm btn-danger transform transition-all duration-300 hover:scale-110">

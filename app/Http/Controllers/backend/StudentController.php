@@ -41,7 +41,7 @@ class StudentController extends Controller
             'alert-type' => 'success'                                          
         );
 
-        return redirect()->back()->with($notification);   
+        return redirect()->route('manage.students')->with($notification);   
     }
 
     public function ManageStudents(Request $request)
@@ -49,4 +49,60 @@ class StudentController extends Controller
         $students = Student::all();                                                                  
         return view('backend.student.manage_student_view', compact('students')); 
     }
+
+    public function EditStudent($id)
+    {
+        $classes = classes::all(); 
+        $student = Student::find($id);                                                           
+        // echo $student;
+        return view('backend.student.edit_student_view', compact('student', 'classes'));   
+
+    }
+
+    public function UpdateStudent(Request $request)
+    {
+        $id = $request->id;
+        
+        // Find the student by ID
+        $student = Student::findOrFail($id);
+    
+        // Handle the photo upload if provided
+        if ($request->hasFile('photo')) {
+            // Delete old photo if exists
+            if ($student->photo && file_exists(public_path('uploads/student_photos/' . $student->photo))) {
+                unlink(public_path('uploads/student_photos/' . $student->photo));
+            }
+    
+            // Save the new photo
+            $file = $request->file('photo');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/student_photos'), $filename);
+            $student->photo = $filename;
+        }
+    
+        // Update student details
+        $student->update([
+            'name' => $request->full_name,   
+            'roll_id' => $request->roll_id,
+            'email' => $request->email,
+            'class_id' => $request->class_id,  
+            'dob' => $request->dob,
+            'gender' => $request->gender,
+            'photo' => $student->photo ?? $student->photo, // If photo is not null, keep the current photo value (no change)
+        ]);
+
+        $student->save();
+    
+        // Notification message
+        $notification = array(
+            'message' => 'Student Details Updated Successfully!',
+            'alert-type' => 'success',
+        );
+    
+        return redirect()->route('manage.students')->with($notification);
+    }
+    
+    
+
 }
+

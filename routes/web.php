@@ -55,9 +55,9 @@ Route::controller(ClassesController::class)->group(function(){
     // URL: 'manage/class'
     // Calls the 'ManageClasses' method in ClassesController
     Route::get('manage/classes', 'ManageClasses')->name('manage.classes');
-    // Route for editing a student's details
-    // URL: 'edit/student/{id}'
-    // Calls the 'EditStudent' method in the respective controller
+    // Route for editing a class's details
+    // URL: 'edit/class/{id}'
+    // Calls the 'EditClass' method in the respective controller
     // Put {id} because in view file already pass the ID 
     Route::get('edit/class/{id}', 'EditClass')->name('edit.class');
     // Route for updating class details
@@ -118,6 +118,13 @@ Route::controller(StudentController::class)->group(function(){
     Route::post('store/student', 'StoreStudent')->name('store.student');
     // Manage students page
     Route::get('manage/students', 'ManageStudents')->name('manage.students');
+    // Route for editing a student's details
+    // URL: 'edit/student/{id}'
+    // Calls the 'EditStudent' method in the respective controller
+    // Put {id} because in view file already pass the ID 
+    Route::get('edit/student/{id}', 'EditStudent')->name('edit.student');
+    // Implement the update student details
+    Route::post('update/student', 'UpdateStudent')->name('update.student');
 });
 
 Route::middleware('auth')->group(function () {
