@@ -102,7 +102,19 @@ class StudentController extends Controller
         return redirect()->route('manage.students')->with($notification);
     }
     
-    
+    public function DeleteStudent($id)
+    {
+        $student = Student::find($id); 
+        unlink(public_path('uploads/student_photos/' . $student->photo));          
+        $student->delete();                          
 
+        // Notification message
+        $notification = array(
+            'message' => 'Student Deleted Successfully!',                
+            'alert-type' => 'success'                                         
+        );
+
+        return redirect()->back()->with($notification);  
+    }
 }
 
