@@ -53,7 +53,7 @@
                             <a href="{{ route('edit.student', $student->id) }}" class="btn btn-sm btn-primary me-2 transform transition-all duration-300 hover:scale-110"> 
                                 <img src="https://cdn-icons-png.flaticon.com/128/2040/2040995.png" alt="Edit" style="width: 20px; height: 20px;"/>
                             </a>
-                            <a href="{{ route('manage.students', $student->id) }}" id="delete" class="btn btn-sm btn-danger transform transition-all duration-300 hover:scale-110">
+                            <a href="{{ route('delete.student', $student->id) }}" id="delete" class="btn btn-sm btn-danger transform transition-all duration-300 hover:scale-110">
                                 <img src="https://cdn-icons-png.flaticon.com/128/8134/8134408.png" alt="Trash" style="width: 20px; height: 20px;"/>
                             </a>
                         </td>
