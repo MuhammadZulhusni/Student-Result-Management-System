@@ -100,7 +100,7 @@
                         <li>
                             <a href="{{ route('add.student') }}" class="text-white">
                                 <i class="ri-user-add-line me-2"></i> 
-                                Add student
+                                Add Student
                             </a>
                         </li>
                         <!-- Manage student -->
@@ -108,6 +108,23 @@
                             <a href="{{ route('manage.students') }}" class="text-white">
                                 <i class="bi bi-sliders2-vertical me-2"></i>
                                 Manage <span style="margin-left: 2.2rem;">Students</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Result Dropdown -->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect text-white">
+                        <i class="ri-file-list-3-line text-white"></i> 
+                        <span>Result</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <!-- Add student -->
+                        <li>
+                            <a href="{{ route('add.result') }}" class="text-white">
+                                <i class="ri-file-add-line me-2"></i> 
+                                Add Result
                             </a>
                         </li>
                     </ul>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\backend\AdminController;
+use App\Http\Controllers\backend\ResultController;
 use App\Http\Controllers\backend\ClassesController;
 use App\Http\Controllers\backend\StudentController;
 use App\Http\Controllers\backend\SubjectController;
@@ -128,6 +129,13 @@ Route::controller(StudentController::class)->group(function(){
     // Implement delete student
     Route::get('delete/student/{id}', 'DeleteStudent')->name('delete.student');
 });
+
+// Grouped routes for 'ResultController.php'
+Route::controller(ResultController::class)->group(function(){
+    // Add result page route
+    Route::get('add/result', 'AddResult')->name('add.result');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
