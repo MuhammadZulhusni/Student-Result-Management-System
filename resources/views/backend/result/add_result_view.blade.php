@@ -43,7 +43,7 @@
                                 <span class="input-group-text" style="background-color: rgba(42, 10, 69); color: white;">
                                     <i class="ri-community-fill"></i>
                                 </span>
-                                <select class="form-select" name="class_id" aria-label="Select Class">
+                                <select class="form-select dynamic" name="class_id" data-dependant="student">
                                     <option selected>-- Select a Class --</option>
                                     @foreach($classes as $class)
                                         <option value="{{ $class->id }}">{{ $class->class_name }}</option>
@@ -61,7 +61,7 @@
                                 <span class="input-group-text" style="background-color: rgba(42, 10, 69); color: white;">
                                     <i class="ri-user-fill"></i>
                                 </span>
-                                <select class="form-select" name="student_id" aria-label="Select Student">
+                                <select class="form-select" name="student_id" id="student">
                                     <option selected>-- Select a Student --</option>
                                     <!-- Add options dynamically -->
                                 </select>
@@ -69,25 +69,23 @@
                         </div>
 
                         <!-- Alert Message -->
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <div class="alert alert-primary alert-dismissible fade show shadow-sm" role="alert">
                                 <i class="ri-information-line me-2"></i>
                                 This student's result is already declared!
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Subjects and Marks -->
-                        <div class="mb-3">
-                            <label for="marks" class="form-label fw-semibold">
-                                <i class="ri-book-line me-2"></i>Subjects and Marks
+                        <div class="mb-3 showSubjects">
+                            <label for="marks" class="form-label font-semibold text-gray-700 text-lg flex items-center gap-2">
+                                <i class="ri-book-line text-purple-600"></i> Subjects and Marks
                             </label>
-                            <div class="input-group shadow-sm">
-                                <span class="input-group-text" style="background-color: rgba(42, 10, 69); color: white;">
-                                    <i class="ri-edit-box-line"></i>
-                                </span>
-                                <input type="text" name="subject" class="form-control" value="English" readonly>
-                                <input type="text" name="marks[]" class="form-control" placeholder="Enter marks out of 100" required>
+
+                            <!-- Subject List -->
+                            <div class="sub flex items-center gap-4 p-4 border border-gray-200 shadow-sm rounded-md mb-4">
+                                <!-- Subject rows will be inserted here dynamically -->
                             </div>
                         </div>
 
@@ -104,4 +102,42 @@
     </div>
 </div>
 
+
+<script>
+// Ensures the code runs only after the DOM is fully loaded
+$(document).ready(function(){ 
+
+// Initially hides elements with the 'showSubjects' class
+$('.showSubjects').hide(); 
+
+// Adds a 'change' event listener to elements with the 'dynamic' class
+$('.dynamic').on('change', function (){
+    // Retrieves the selected value of the changed element (class ID)
+    let class_id = $(this).val(); 
+    // Retrieves the 'dependant' data attribute from the changed element
+    let dependant = $(this).data('dependant'); 
+    // Retrieves the CSRF token for security purposes
+    let _token = "{{ csrf_token() }}"; 
+    $.ajax({
+        // URL for the server-side route handling the AJAX request
+        url: "{{ route('fetch.student') }}", 
+        // HTTP method used for the request
+        method: "GET", 
+        // Expected data type for the response
+        datatype: "json", 
+        // Data sent to the server: class ID and CSRF token
+        data: {class_id: class_id, _token: _token}, 
+        success: function(result){
+            // Callback function executed when the request is successful
+            // Populate student dropdown with the received student data
+            $('#student').html(result.students); 
+            // Populate subject rows with the received subject data
+            $('.showSubjects .sub').html(result.subjects.join('')); 
+            // Show the subjects section once data is loaded
+            $('.showSubjects').show(); 
+        }
+    });
+});
+});
+</script>
 @endsection
