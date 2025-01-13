@@ -136,6 +136,7 @@ Route::controller(ResultController::class)->group(function(){
     Route::get('add/result', 'AddResult')->name('add.result');
     // AJAX request all routes
     Route::get('fetch/student', 'FetchStudent')->name('fetch.student');
+    Route::get('check/student/result', 'FetchStudentResult')->name('check.student.result');
 });
 
 

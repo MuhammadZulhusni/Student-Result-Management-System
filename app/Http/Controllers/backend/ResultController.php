@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Result;
 use App\Models\classes;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ResultController extends Controller
 {
@@ -54,4 +55,24 @@ class ResultController extends Controller
         // Returns the student dropdown and subject data as a JSON response
         return response()->json(['students'=>$std_data, 'subjects' => $subject_data]);
     }    
+
+    public function FetchStudentResult(Request $request)
+    {
+        $student_id = $request->student_id;        // Retrieves the student ID from the request data
+        $result = Result::where('student_id', $student_id)->first();  // Queries the database to find the result associated with the student ID
+        $message = '';                             // Initializes a message variable to store the response message
+
+        // Checks if a result exists for the student
+        if($result){
+            // If the result exists, sets an alert message indicating the result is already declared
+            $message .= ' <div class="alert alert-primary alert-dismissible fade show shadow-sm" role="alert">
+                            <i class="ri-information-line me-2"></i>
+                                This student\'s result is already declared!
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>';
+        }
+
+        // Returns the message as a JSON response
+        return response()->json($message);
+    }
 }
