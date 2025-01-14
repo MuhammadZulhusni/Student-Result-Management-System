@@ -69,13 +69,11 @@
                         </div>
 
                         <!-- Alert Message -->
-                        <!-- <div class="mb-3">
-                            <div class="alert alert-primary alert-dismissible fade show shadow-sm" role="alert">
-                                <i class="ri-information-line me-2"></i>
-                                This student's result is already declared!
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <div class="mb-3">
+                            <div id="alert">
+
                             </div>
-                        </div> -->
+                        </div>
 
                         <!-- Subjects and Marks -->
                         <div class="mb-3 showSubjects">
@@ -112,32 +110,55 @@ $('.showSubjects').hide();
 
 // Adds a 'change' event listener to elements with the 'dynamic' class
 $('.dynamic').on('change', function (){
-    // Retrieves the selected value of the changed element (class ID)
-    let class_id = $(this).val(); 
-    // Retrieves the 'dependant' data attribute from the changed element
-    let dependant = $(this).data('dependant'); 
-    // Retrieves the CSRF token for security purposes
-    let _token = "{{ csrf_token() }}"; 
+        // Retrieves the selected value of the changed element (class ID)
+        let class_id = $(this).val(); 
+        // Retrieves the 'dependant' data attribute from the changed element
+        let dependant = $(this).data('dependant'); 
+        // Retrieves the CSRF token for security purposes
+        let _token = "{{ csrf_token() }}"; 
+        $.ajax({
+            // URL for the server-side route handling the AJAX request
+            url: "{{ route('fetch.student') }}", 
+            // HTTP method used for the request
+            method: "GET", 
+            // Expected data type for the response
+            datatype: "json", 
+            // Data sent to the server: class ID and CSRF token
+            data: {class_id: class_id, _token: _token}, 
+            success: function(result){
+                // Callback function executed when the request is successful
+                // Populate student dropdown with the received student data
+                $('#student').html(result.students); 
+                // Populate subject rows with the received subject data
+                $('.showSubjects .sub').html(result.subjects.join('')); 
+                // Show the subjects section once data is loaded
+                $('.showSubjects').show(); 
+            }
+        });
+    });
+});
+
+// Adds a 'change' event listener to the element with ID 'student'
+$('#student').change(function(){
+    // Gets the selected value (student ID) from the dropdown
+    let student_id = $(this).val();
+
+    // Sends an AJAX request to fetch the student's result
     $.ajax({
-        // URL for the server-side route handling the AJAX request
-        url: "{{ route('fetch.student') }}", 
+        // URL for the server-side route handling the request
+        url: "{{ route('check.student.result')}}", 
         // HTTP method used for the request
         method: "GET", 
         // Expected data type for the response
         datatype: "json", 
-        // Data sent to the server: class ID and CSRF token
-        data: {class_id: class_id, _token: _token}, 
+        // Data sent to the server: student ID and CSRF token
+        data: {student_id: student_id, _token: "{{csrf_token()}}"}, 
+        // Callback function executed when the request is successful
         success: function(result){
-            // Callback function executed when the request is successful
-            // Populate student dropdown with the received student data
-            $('#student').html(result.students); 
-            // Populate subject rows with the received subject data
-            $('.showSubjects .sub').html(result.subjects.join('')); 
-            // Show the subjects section once data is loaded
-            $('.showSubjects').show(); 
+            // Updates the element with ID 'alert' with the response result
+            $('#alert').html(result); 
         }
     });
-});
 });
 </script>
 @endsection
