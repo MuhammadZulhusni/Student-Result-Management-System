@@ -31,7 +31,7 @@
                         <p class="text-muted">Fill in the details to declare a result for the student.</p>
                     </div>
 
-                    <form action="{{ route('store.subject') }}" method="POST">
+                    <form action="{{ route('store.result') }}" method="POST">
                         @csrf
 
                         <!-- Class Selection -->

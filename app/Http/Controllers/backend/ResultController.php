@@ -75,4 +75,28 @@ class ResultController extends Controller
         // Returns the message as a JSON response
         return response()->json($message);
     }
+
+    public function StoreResult(Request $request)
+    {
+        // dd($request->all());
+        $sub_count = count($request->subject_ids);
+        for ($i=0; $i < $sub_count; $i++) { 
+            $result = [
+                'student_id' => $request->student_id,
+                'class_id' => $request->class_id,
+                'subject_id' => $request->subject_ids[$i],
+                'marks' => $request->marks[$i] 
+            ];
+
+            Result::create($result);
+        }
+
+        // Notification message
+        $notification = array(
+            'message' => 'Result Declared Successfully!',                
+            'alert-type' => 'success'                                          
+        );
+
+        return redirect()->back()->with($notification);   
+    }
 }
