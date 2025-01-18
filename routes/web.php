@@ -139,6 +139,8 @@ Route::controller(ResultController::class)->group(function(){
     Route::get('check/student/result', 'FetchStudentResult')->name('check.student.result');
     // Add Result
     Route::post('store/result', 'StoreResult')->name('store.result');
+    // Manage result
+    Route::get('manage/results', 'ManageResults')->name('manage.results');
 });
 
 

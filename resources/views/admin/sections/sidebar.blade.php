@@ -120,11 +120,18 @@
                         <span>Result</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <!-- Add student -->
+                        <!-- Add result -->
                         <li>
                             <a href="{{ route('add.result') }}" class="text-white">
                                 <i class="ri-file-add-line me-2"></i> 
                                 Add Result
+                            </a>
+                        </li>
+                        <!-- Manage result -->
+                        <li>
+                            <a href="{{ route('manage.results') }}" class="text-white">
+                                <i class="ri-file-add-line me-2"></i> 
+                                Manage Results
                             </a>
                         </li>
                     </ul>

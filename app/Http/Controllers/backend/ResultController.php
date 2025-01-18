@@ -99,4 +99,10 @@ class ResultController extends Controller
 
         return redirect()->back()->with($notification);   
     }
+
+    public function ManageResults(Request $request)
+    {
+        $results = Result::groupBy('student_id')->get(); // Retrieves a collection of unique results grouped by 'student_id'                                                             
+        return view('backend.result.manage_result', compact('results')); 
+    }
 }
