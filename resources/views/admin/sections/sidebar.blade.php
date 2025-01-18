@@ -130,8 +130,8 @@
                         <!-- Manage result -->
                         <li>
                             <a href="{{ route('manage.results') }}" class="text-white">
-                                <i class="ri-file-add-line me-2"></i> 
-                                Manage Results
+                                <i class="ri-bar-chart-line me-2"></i>
+                                Manage <span style="margin-left: 2.2rem;">Results</span>
                             </a>
                         </li>
                     </ul>
