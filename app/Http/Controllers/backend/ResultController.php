@@ -105,4 +105,10 @@ class ResultController extends Controller
         $results = Result::groupBy('student_id')->get(); // Retrieves a collection of unique results grouped by 'student_id'                                                             
         return view('backend.result.manage_result', compact('results')); 
     }
+
+    public function EditResult($id)
+    {
+        $result = Result::where('student_id',$id)->get();             // Retrieve all results associated with the given student ID                                            
+        return view('backend.result.edit_result', compact('result'));  // Return the 'edit_result' view, passing the $result data to the view
+    }
 }

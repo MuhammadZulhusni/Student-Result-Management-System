@@ -141,6 +141,8 @@ Route::controller(ResultController::class)->group(function(){
     Route::post('store/result', 'StoreResult')->name('store.result');
     // Manage result
     Route::get('manage/results', 'ManageResults')->name('manage.results');
+    // Edit result
+    Route::get('edit/result/{id}', 'EditResult')->name('edit.result');
 });
 
 

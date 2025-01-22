@@ -16,4 +16,10 @@ class Result extends Model
     {
         return $this->belongsTo(Student::class, 'student_id', 'id');
     }
+
+    // Defines a relationship indicating that each result belongs to a specific subject
+    public function subject(): BelongsTo
+    {
+        return $this->belongsTo(Subject::class);
+    }
 }
