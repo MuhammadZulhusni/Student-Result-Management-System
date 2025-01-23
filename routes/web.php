@@ -145,6 +145,8 @@ Route::controller(ResultController::class)->group(function(){
     Route::get('edit/result/{id}', 'EditResult')->name('edit.result');
     // Implement update
     Route::post('update/result', 'UpdateResult')->name('update.result');
+    // Implement delete 
+    Route::get('delete/result/{id}', 'DeleteResult')->name('delete.result');
 });
 
 
