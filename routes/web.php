@@ -143,6 +143,8 @@ Route::controller(ResultController::class)->group(function(){
     Route::get('manage/results', 'ManageResults')->name('manage.results');
     // Edit result
     Route::get('edit/result/{id}', 'EditResult')->name('edit.result');
+    // Implement update
+    Route::post('update/result', 'UpdateResult')->name('update.result');
 });
 
 
