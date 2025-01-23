@@ -31,7 +31,7 @@
                         <p class="text-muted">Modify the details below to update the result.</p>
                     </div>
 
-                    <form action="{{ route('store.result', $result[0]->id) }}" method="POST">
+                    <form action="{{ route('update.result', $result[0]->id) }}" method="POST">
                         @csrf
 
                         <!-- Student Name -->
@@ -72,6 +72,7 @@
                                         <h6 class="text-sm fw-semibold text-purple-700 mb-1">{{ $result[$i]->subject->subject_name }}</h6> <!-- Display the subject name of the current result -->
                                         <p class="text-xs text-muted">Enter marks for this subject</p>
                                     </div>
+                                    <input type="hidden" name="result_ids[]" value="{{ $result[$i]->id }}">  <!-- Hidden input to store the result ID for updating -->
                                     <input type="hidden" name="subject_ids[]" value="{{ $result[$i]->subject->id }}">  <!-- Hidden input to store the subject ID of the current result -->
                                     <input type="number" name="marks[]" class="form-control w-25 shadow-sm" 
                                         placeholder="Marks (out of 100)" value="{{ $result[$i]->marks }}" required>  <!-- Input field for entering marks, pre-filled with the current result's marks -->

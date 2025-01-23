@@ -111,4 +111,29 @@ class ResultController extends Controller
         $result = Result::where('student_id',$id)->get();             // Retrieve all results associated with the given student ID                                            
         return view('backend.result.edit_result', compact('result'));  // Return the 'edit_result' view, passing the $result data to the view
     }
+
+    public function UpdateResult(Request $request)
+    {
+        // dd($request->all());
+         // Get the count of subject IDs from the request to determine how many updates to perform
+        $sub_count = count($request->subject_ids);
+
+         // Loop through each subject to update its corresponding result record
+        for ($i=0; $i < $sub_count; $i++) { 
+            // Find the result record by its ID and update the subject ID and marks
+            $result = Result::where('id', $request->result_ids[$i])->update([
+                'subject_id' => $request->subject_ids[$i], // Update subject ID
+                'marks' => $request->marks[$i],            // Update marks
+            ]);
+        }
+
+        // Notification message
+        $notification = array(
+            'message' => 'Result Updated Successfully!',                
+            'alert-type' => 'success'                                          
+        );
+
+        return redirect()->back()->with($notification);   
+    }
+
 }
