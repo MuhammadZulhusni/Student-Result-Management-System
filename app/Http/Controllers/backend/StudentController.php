@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 
+use App\Models\Result;
 use App\Models\classes;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -105,7 +106,8 @@ class StudentController extends Controller
     public function DeleteStudent($id)
     {
         $student = Student::find($id); 
-        unlink(public_path('uploads/student_photos/' . $student->photo));          
+        unlink(public_path('uploads/student_photos/' . $student->photo));   
+        Result::where('student_id', $student->id);
         $student->delete();                          
 
         // Notification message
