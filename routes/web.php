@@ -7,10 +7,10 @@ use App\Http\Controllers\backend\ResultController;
 use App\Http\Controllers\backend\ClassesController;
 use App\Http\Controllers\backend\StudentController;
 use App\Http\Controllers\backend\SubjectController;
+use App\Http\Controllers\frontend\StudentResultController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Define a route for the homepage that maps to the 'index' method of the StudentResultController. The route is named 'index'.
+Route::get('/', [StudentResultController::class, 'index'])->name('index');
 
 // Admin dashboard route requiring authentication and email verification
 // Returns the 'admin.index' view and is named 'dashboard'
