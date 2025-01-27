@@ -9,6 +9,8 @@
     <meta content="Themesdesign" name="author" />
     <link rel="shortcut icon" href="{{asset('https://cdn-icons-png.flaticon.com/128/18416/18416361.png')}}">
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Bootstrap Css -->
     <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
@@ -17,63 +19,55 @@
     <link href="{{ asset('backend/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="auth-body-bg" style="background-image: url('https://static.canadianjourney.blog/images/jch-optimize/ng/images_high-school-graduation.webp'); background-size: cover; background-position: center;">
-    <div class="bg-overlay"></div>
-    <div class="container d-flex align-items-center justify-content-center min-vh-100">
-        <div class="card border-0 shadow-lg rounded-3 w-100" style="max-width: 450px;">
-            <div class="card-body p-4">
-                <!-- Logo -->
-                <div class="text-center mb-4">
-                    <i class="fa fa-graduation-cap text-primary" style="font-size: 3rem;"></i>
-                    <h3 class="fw-bold mt-2">SRMS</h3>
-                    <p class="text-muted fs-5">Student Result Management System</p>
-                </div>
-
-                <!-- Title -->
-                <h5 class="text-center mb-4">Admin Login</h5>
-
-                <!-- Login Form -->
-                <form method="POST" action="{{ route('login') }}"> <!-- This form sends a POST request to the 'login' route to handle the admin login -->
-                    @csrf
-                    <!-- Username -->
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Username</label>
-                        <div class="input-group">
-                            <span class="input-group-text bg-light"><i class="fa fa-user text-primary"></i></span>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Enter your username" required>
-                        </div>
-                        @error('name')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- Password -->
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <div class="input-group">
-                            <span class="input-group-text bg-light"><i class="fa fa-lock text-primary"></i></span>
-                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Enter your password" required>
-                        </div>
-                        @error('password')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- Remember Me -->
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" id="customCheck1">
-                        <label class="form-check-label" for="customCheck1">Remember me</label>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-sign-in-alt me-2"></i> Log In
-                        </button>
-                    </div>
-                </form>
-            </div>
+<body class="bg-gray-50 h-screen flex items-center justify-center" style="background-image: url('https://static.canadianjourney.blog/images/jch-optimize/ng/images_high-school-graduation.webp'); background-size: cover; background-position: center;">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative z-10 bg-white shadow-2xl rounded-3xl p-10 w-full max-w-lg">
+        <!-- Logo -->
+        <div class="text-center mb-6">
+            <i class="fa fa-graduation-cap text-purple-600" style="font-size: 3rem;"></i>
         </div>
+        <h2 class="text-center text-3xl font-extrabold text-gray-800 mb-2">Student Result Management System</h2>
+        <p class="text-center text-gray-500 mt-2 font-bold">Admin Login</p>
+        <p class="text-center text-gray-500 mb-8 max-w-lg mx-auto">Enter your username and password to log in to the admin dashboard and manage the system.</p>
+
+        <!-- Login Form -->
+        <form method="POST" action="{{ route('login') }}" class="mt-8 space-y-6">
+            @csrf
+            <!-- Username -->
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Username</label>
+                <div class="relative">
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="fa fa-user text-purple-600"></i></span>
+                        <input type="text" class="form-control w-full border-gray-300 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 p-3 @error('name') is-invalid @enderror" id="name" name="name" placeholder="Enter your username" required>
+                    </div>
+                </div>
+                @error('name')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <!-- Password -->
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                <div class="relative">
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="fa fa-lock text-purple-600"></i></span>
+                        <input type="password" class="form-control w-full border-gray-300 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 p-3 @error('password') is-invalid @enderror" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                </div>
+                @error('password')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid mt-6">
+            <button type="submit" class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 flex items-center justify-center">
+                <i class="fa fa-sign-in-alt mr-2 text-white"></i> Log In
+            </button>
+            </div>
+        </form>
     </div>
 
     <!-- JAVASCRIPT -->
