@@ -12,6 +12,11 @@ use App\Http\Controllers\frontend\StudentResultController;
 // Define a route for the homepage that maps to the 'index' method of the StudentResultController. The route is named 'index'.
 Route::get('/', [StudentResultController::class, 'index'])->name('index');
 
+Route::post('search/result', [StudentResultController::class, 'SearchResult'])->name('search.result');
+
+// START AUTH MIDDLEWARE
+Route::middleware('auth')->group(function(){
+
 // Admin dashboard route requiring authentication and email verification
 // Returns the 'admin.index' view and is named 'dashboard'
 Route::get('/dashboard', function () {
@@ -149,6 +154,8 @@ Route::controller(ResultController::class)->group(function(){
     Route::get('delete/result/{id}', 'DeleteResult')->name('delete.result');
 });
 
+// END AUTH MIDDLEWARE
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
