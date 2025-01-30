@@ -17,6 +17,8 @@
     <link href="{{ asset('backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="{{ asset('backend/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 
 <body class="bg-gray-50 h-screen flex items-center justify-center" style="background-image: url('https://static.canadianjourney.blog/images/jch-optimize/ng/images_high-school-graduation.webp'); background-size: cover; background-position: center;">
@@ -26,8 +28,10 @@
         <div class="text-center mb-6">
             <i class="fa fa-graduation-cap text-purple-600" style="font-size: 3rem;"></i>
         </div>
-        <h2 class="text-center text-3xl font-extrabold text-gray-800 mb-2">Student Result Management System</h2>
-        <p class="text-center text-gray-500 mt-2 font-bold">Admin Login</p>
+        <h2 class="text-center text-3xl font-extrabold text-gray-800 mb-4">Student Result Management System</h2>
+        <p class="text-center text-gray-500 mt-2 font-bold flex items-center justify-center">
+            <i class="bi bi-person-lines-fill mr-2"></i> Admin Login
+        </p>
         <p class="text-center text-gray-500 mb-8 max-w-lg mx-auto">Enter your username and password to log in to the admin dashboard and manage the system.</p>
 
         <!-- Login Form -->
@@ -63,9 +67,9 @@
 
             <!-- Submit Button -->
             <div class="d-grid mt-6">
-            <button type="submit" class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 flex items-center justify-center">
-                <i class="fa fa-sign-in-alt mr-2 text-white"></i> Log In
-            </button>
+                <button type="submit" class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 flex items-center justify-center">
+                    <i class="fa fa-sign-in-alt mr-2 text-white"></i> Log In
+                </button>
             </div>
         </form>
     </div>
