@@ -20,6 +20,7 @@
         </div>
 
         <!-- Student Information -->
+        <!-- Displays student details including name, roll ID, and class information -->
         <div class="bg-gray-50 p-4 rounded-lg mb-6">
             <p class="text-gray-700"><strong>Student Name:</strong> {{ $result[0]->student->name }}</p>
             <p class="text-gray-700"><strong>Roll ID:</strong> {{ $result[0]->student->roll_id }}</p>
@@ -37,6 +38,7 @@
                     </tr>
                 </thead>
                 <tbody class="text-gray-700">
+                    <!-- Loops through the result set to display subject-wise marks in a table -->
                     @foreach ($result as $key => $item)
                     <tr class="border-b border-gray-200 hover:bg-gray-100">
                         <td class="py-2 px-4">{{ $key+1 }}</td>
