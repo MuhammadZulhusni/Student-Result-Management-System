@@ -77,6 +77,15 @@ Designed for manage and display student results efficiently. It provides an intu
 10. Open your MySQL server and ensure the database is running. 
     - In my case, I used **MAMP** for server management and **Sequel Ace** for database management, but you can use other tools dedicated MySQL server depending on your setup.
 
+## Accessing the Backend
+Once the server is running, access the admin login page by navigating to:
+
+```
+http://localhost:8000/login
+```
+
+Log in using the admin credentials (if seeded, check the database or default credentials). Upon successful login, you will be redirected to the admin dashboard where you can manage students, classes, subjects, and results.
+
 ## Technologies Used
 - **Framework:** Laravel
 - **Frontend:** HTML, CSS, JavaScript, Tailwind, Bootstrap
