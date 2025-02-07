@@ -38,7 +38,7 @@
                     </tr>
                 </thead>
                 <tbody class="text-gray-700">
-                    <!-- Loops through the result set to display subject-wise marks in a table -->
+                <!-- Iterates through the result set and displays each subject's name and marks in a table row -->
                     @foreach ($result as $key => $item)
                     <tr class="border-b border-gray-200 hover:bg-gray-100">
                         <td class="py-2 px-4">{{ $key+1 }}</td>
