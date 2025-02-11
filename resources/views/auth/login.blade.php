@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 
-<body class="bg-gray-50 h-screen flex items-center justify-center" style="background-image: url('https://static.canadianjourney.blog/images/jch-optimize/ng/images_high-school-graduation.webp'); background-size: cover; background-position: center;">
+<body class="bg-gray-50 h-screen flex items-center justify-center" style="background-image: url('https://insights.ise.org.uk/wp-content/uploads/2020/12/A-new-way-to-measure-graduate-success.jpg'); background-size: cover; background-position: center;">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     <div class="relative z-10 bg-white shadow-2xl rounded-3xl p-10 w-full max-w-lg">
         <!-- Logo -->
