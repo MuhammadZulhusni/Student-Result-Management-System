@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Result</title>
-    <link rel="shortcut icon" href="{{asset('https://cdn-icons-png.flaticon.com/128/18416/18416361.png')}}">
+    <link rel="shortcut icon" href="{{ asset('https://cdn-icons-png.flaticon.com/128/18416/18416361.png') }}">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,17 +14,15 @@
     <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-3xl">
         <!-- Header -->
         <div class="text-center mb-6">
-            <!-- Icon centered above the title and made larger -->
             <img src="https://cdn-icons-png.flaticon.com/128/2641/2641333.png" alt="Man Icon" class="w-24 h-24 mx-auto mb-4">
             <h1 class="text-3xl font-bold text-gray-800">Student's Result</h1>
         </div>
 
         <!-- Student Information -->
-        <!-- Displays student details including name, roll ID, and class information -->
         <div class="bg-gray-50 p-4 rounded-lg mb-6">
             <p class="text-gray-700"><strong>Student Name:</strong> {{ $result[0]->student->name }}</p>
             <p class="text-gray-700"><strong>Roll ID:</strong> {{ $result[0]->student->roll_id }}</p>
-            <p class="text-gray-700"><strong>Class:</strong> {{ $result[0]->student->class->class_name }} (Section - {{ $result[0]->student->class->section }})</p>
+            <p class="text-gray-700"><strong>Program:</strong> {{ $result[0]->student->class->class_name }} (Section - {{ $result[0]->student->class->section }})</p>
         </div>
 
         <!-- Result Table -->
@@ -35,31 +33,53 @@
                         <th class="py-2 px-4 text-left">#</th>
                         <th class="py-2 px-4 text-left">Subjects</th>
                         <th class="py-2 px-4 text-center">Marks</th>
+                        <th class="py-2 px-4 text-center">Grade</th>
+                        <th class="py-2 px-4 text-center">Grade Value</th>
+                        <th class="py-2 px-4 text-center">Status</th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-700">
-                <!-- Iterates through the result set and displays each subject's name and marks in a table row -->
+                    @php
+                        function getGradeDetails($marks) {
+                            if ($marks >= 80) return ['A', 4.00, 'Excellent'];
+                            if ($marks >= 75) return ['A-', 3.67, 'Excellent'];
+                            if ($marks >= 70) return ['B+', 3.33, 'Good'];
+                            if ($marks >= 65) return ['B', 3.00, 'Good'];
+                            if ($marks >= 60) return ['B-', 2.67, 'Pass'];
+                            if ($marks >= 55) return ['C+', 2.33, 'Pass'];
+                            if ($marks >= 50) return ['C', 2.00, 'Pass'];
+                            if ($marks >= 45) return ['C-', 1.67, 'Fail'];
+                            if ($marks >= 40) return ['D', 1.00, 'Fail'];
+                            if ($marks >= 35) return ['E', 0.67, 'Fail'];
+                            return ['F', 0.00, 'Fail'];
+                        }
+
+                        $total_grade_value = 0;
+                        $total_subjects = count($result);
+                    @endphp
+
                     @foreach ($result as $key => $item)
-                    <tr class="border-b border-gray-200 hover:bg-gray-100">
-                        <td class="py-2 px-4">{{ $key+1 }}</td>
-                        <td class="py-2 px-4">{{ $item->subject->subject_name }}</td>
-                        <td class="py-2 px-4 text-center">{{ $item->marks }}</td>
-                    </tr>
+                        @php
+                            list($grade, $grade_value, $status) = getGradeDetails($item->marks);
+                            $total_grade_value += $grade_value;
+                        @endphp
+                        <tr class="border-b border-gray-200 hover:bg-gray-100">
+                            <td class="py-2 px-4">{{ $key+1 }}</td>
+                            <td class="py-2 px-4">{{ $item->subject->subject_name }}</td>
+                            <td class="py-2 px-4 text-center">{{ $item->marks }}</td>
+                            <td class="py-2 px-4 text-center">{{ $grade }}</td>
+                            <td class="py-2 px-4 text-center">{{ $grade_value }}</td>
+                            <td class="py-2 px-4 text-center">{{ $status }}</td>
+                        </tr>
                     @endforeach
 
                     @php
-                        $total_mark_obtain = App\Models\Result::where('student_id', $result[0]->student->id)->sum("marks");
-                        $overall_marks = (100 * count($result));
+                        $cgpa = $total_grade_value / $total_subjects;
                     @endphp
 
                     <tr class="bg-gray-50">
-                        <td colspan="2" class="py-1 px-4 text-right font-semibold">Total Marks</td>
-                        <td class="py-1 px-2 text-center font-semibold">{{ $total_mark_obtain }} Out of {{ $overall_marks }}</td>
-                    </tr>
-
-                    <tr class="bg-gray-50">
-                        <td colspan="2" class="py-1 px-4 text-right font-semibold">Percentage</td>
-                        <td class="py-1 px-2 text-center font-semibold">{{ ($total_mark_obtain/$overall_marks) * 100 }}%</td>
+                        <td colspan="4" class="py-1 px-4 text-right font-semibold">CGPA</td>
+                        <td colspan="2" class="py-1 px-2 text-center font-semibold">{{ number_format($cgpa, 2) }} / 4.00</td>
                     </tr>
                 </tbody>
             </table>
