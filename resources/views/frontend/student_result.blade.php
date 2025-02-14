@@ -40,6 +40,7 @@
                 </thead>
                 <tbody class="text-gray-700">
                     @php
+                        // Function to determine grade, grade point, and remarks based on marks
                         function getGradeDetails($marks) {
                             if ($marks >= 80) return ['A', 4.00, 'Excellent'];
                             if ($marks >= 75) return ['A-', 3.67, 'Excellent'];
@@ -54,7 +55,10 @@
                             return ['F', 0.00, 'Fail'];
                         }
 
+                        // Initialize total grade value
                         $total_grade_value = 0;
+
+                        // Get the total number of subjects
                         $total_subjects = count($result);
                     @endphp
 
