@@ -64,17 +64,19 @@
 
                     @foreach ($result as $key => $item)
                         @php
+                            // Get grade details based on marks
                             list($grade, $grade_value, $status) = getGradeDetails($item->marks);
+                            // Add grade value to the total
                             $total_grade_value += $grade_value;
                         @endphp
-                        <tr class="border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-2 px-4">{{ $key+1 }}</td>
-                            <td class="py-2 px-4">{{ $item->subject->subject_name }}</td>
-                            <td class="py-2 px-4 text-center">{{ $item->marks }}</td>
-                            <td class="py-2 px-4 text-center">{{ $grade }}</td>
-                            <td class="py-2 px-4 text-center">{{ $grade_value }}</td>
-                            <td class="py-2 px-4 text-center">{{ $status }}</td>
-                        </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-2 px-4">{{ $key+1 }}</td> <!-- Display index number -->
+                                <td class="py-2 px-4">{{ $item->subject->subject_name }}</td> <!-- Display subject name -->
+                                <td class="py-2 px-4 text-center">{{ $item->marks }}</td> <!-- Display marks -->
+                                <td class="py-2 px-4 text-center">{{ $grade }}</td> <!-- Display grade -->
+                                <td class="py-2 px-4 text-center">{{ $grade_value }}</td> <!-- Display grade value -->
+                                <td class="py-2 px-4 text-center">{{ $status }}</td> <!-- Display status (e.g., Pass/Fail) -->
+                            </tr>
                     @endforeach
 
                     @php
