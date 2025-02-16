@@ -85,6 +85,7 @@
 
                     <tr class="bg-gray-50">
                         <td colspan="4" class="py-1 px-4 text-right font-semibold">CGPA</td>
+                        <!-- Display CGPA formatted to 2 decimal places, with a maximum value of 4.00 -->
                         <td colspan="2" class="py-1 px-2 text-center font-semibold">{{ number_format($cgpa, 2) }} / 4.00</td>
                     </tr>
                 </tbody>
