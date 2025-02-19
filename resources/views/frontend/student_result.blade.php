@@ -94,6 +94,7 @@
 
         <!-- Buttons -->
         <div class="mt-6 flex justify-center space-x-4">
+            <!-- Button to trigger the print function -->
             <button onclick="window.print()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300">
                 Print Result
             </button>
