@@ -14,8 +14,17 @@
     <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-3xl">
         <!-- Header -->
         <div class="text-center mb-6">
-            <img src="https://cdn-icons-png.flaticon.com/128/2641/2641333.png" alt="Man Icon" class="w-24 h-24 mx-auto mb-4">
+            <!-- Student Photo Display -->
+            <div class="flex justify-center mb-4">
+                <!-- If the 'photo' field is empty, show a default image ('no_image.png'). Otherwise, display the student's uploaded photo from the 'uploads/student_photos' directory. -->
+                <img class="w-32 h-32 rounded-full shadow-md object-cover" 
+                    src="{{ empty($result[0]->student->photo) ? asset('uploads/no_image.png') : asset('uploads/student_photos/' . $result[0]->student->photo) }}" 
+                    alt="Student Photo">
+            </div>
+
+            <!-- Title and Basic Info -->
             <h1 class="text-3xl font-bold text-gray-800">Student's Result</h1>
+            <p class="text-gray-600 mt-2">Academic Performance Overview</p>
         </div>
 
         <!-- Student Information -->

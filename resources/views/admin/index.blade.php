@@ -17,7 +17,7 @@
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Upcube</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Admin Panel</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                 </div>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="avatar-sm">
                             <span class="avatar-title bg-light text-primary rounded-3">
-                                <i class="ri-shopping-cart-2-line font-size-24"></i>
+                                <i class="ri-article-line font-size-24"></i>
                             </span>
                         </div>
                     </div>                                            
@@ -73,7 +73,7 @@
                         </div>
                         <div class="avatar-sm">
                             <span class="avatar-title bg-light text-primary rounded-3">
-                                <i class="ri-shopping-cart-2-line font-size-24"></i>
+                                <i class="ri-building-fill font-size-24"></i>
                             </span>
                         </div>
                     </div>                                            
@@ -91,7 +91,7 @@
                         </div>
                         <div class="avatar-sm">
                             <span class="avatar-title bg-light text-primary rounded-3">
-                                <i class="ri-shopping-cart-2-line font-size-24"></i>
+                                <i class="ri-file-list-3-line font-size-24"></i>
                             </span>
                         </div>
                     </div>                                            
