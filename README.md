@@ -88,7 +88,7 @@ Log in using the admin credentials (if seeded, check the database or default cre
 
 ## Technologies Used
 - **Framework:** Laravel
-- **Frontend:** HTML, CSS, JavaScript, Tailwind, Bootstrap
+- **Frontend:** HTML, CSS, JavaScript, Bootstrap
 - **Backend:** PHP, Laravel
 - **Database:** MySQL
 - **Server Management:** MAMP
