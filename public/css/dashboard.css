@@ -1,0 +1,52 @@
+/* Add custom styles for the card background images */
+.card-decorator {
+    position: relative;
+}
+
+/* Animation for the left decoration */
+.card-decorator::before,
+.card-decorator::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 30%;
+    height: 30%;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+/* Left decoration */
+.card-decorator::before {
+    left: 0;
+    background-image: url("/app-assets/images/elements/decore-left.png");
+    background-size: cover;
+    background-position: center;
+    animation-delay: 0.5s;
+}
+
+/* Right decoration */
+.card-decorator::after {
+    right: 0;
+    background-image: url("/app-assets/images/elements/decore-right.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Keyframes for the fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media query to hide only the card on small screens (mobile) */
+@media (max-width: 767px) {
+    .custom-card {
+        display: none !important;
+    }
+}
