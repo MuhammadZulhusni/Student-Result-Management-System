@@ -92,17 +92,17 @@
         </div>
     </div>
 
-
     <!-- Card -->
     <div class="container py-3">
-        <div class="card mx-auto shadow-lg rounded-4 position-relative card-decorator custom-card" style="max-width: 900px; background: linear-gradient(to right, #6a1b9a, #9c27b0); padding: 40px;">
+        <div class="card mx-auto shadow-lg rounded-4 position-relative card-decorator custom-card" 
+            style="max-width: 900px; background: linear-gradient(to right, #6a1b9a, #9c27b0); padding: 40px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;">
             <!-- Card Body -->
             <div class="card-body text-center text-white" style="font-family: 'Quicksand', sans-serif;">
                 
                 <!-- Avatar and Icon -->
                 <div class="mb-4">
                     <div class="rounded-circle bg-white d-flex justify-content-center align-items-center mx-auto" style="width: 120px; height: 120px;">
-                        <i class="bi bi-person-lines-fill text-primary" style="font-size: 50px;"></i>
+                        <i class="bi bi-person-fill-check text-primary zoom-icon" style="font-size: 50px;"></i>
                     </div>
                 </div>
 
