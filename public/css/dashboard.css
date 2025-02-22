@@ -50,3 +50,20 @@
         display: none !important;
     }
 }
+
+/* Animation */
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.zoom-icon {
+    animation: zoom 4s infinite ease-in-out;
+}
