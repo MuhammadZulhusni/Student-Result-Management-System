@@ -8,6 +8,12 @@
         <meta content="Themesdesign" name="author" />
         <link rel="shortcut icon" href="{{asset('https://cdn-icons-png.flaticon.com/128/18416/18416361.png')}}">
 
+        <!-- Link to Google Fonts (Quicksand) -->
+         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap Icons CDN (for the person icon) -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
         <!-- jquery.vectormap css -->
         <link href="{{asset('backend/}assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
 
@@ -31,6 +37,9 @@
 
         <!-- CSS custom file -->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+        <!-- CSS custom file -->
+        <link href="/css/dashboard.css" rel="stylesheet">
 
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -131,7 +140,6 @@
         <script src="{{asset('backend/assets/libs/simplebar/simplebar.min.js')}}"></script>
         <script src="{{asset('backend/assets/libs/node-waves/waves.min.js')}}"></script>
 
-        
         <!-- apexcharts -->
         <script src="{{asset('backend/assets/libs/apexcharts/apexcharts.min.js')}}"></script>
 
