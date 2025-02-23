@@ -37,7 +37,7 @@
                 <div class="dropdown d-inline-block user-dropdown ms-3">
                     <button type="button" class="btn header-item waves-effect text-white" id="page-header-user-dropdown" data-bs-toggle="dropdown">
                         <!-- Display admin's profile photo, fallback to 'no_image.png' if not set -->
-                        <img class="rounded-circle header-profile-user" src="{{ empty($adminData->photo)? asset('uploads/no_image.png') : asset('uploads/admin_profiles/' .$adminData->photo) }}" alt="Header Avatar">
+                        <img class="rounded-circle header-profile-user" src="{{ empty($adminData->photo)? asset('uploads/no_image.png') : asset('uploads/admin_profiles/' .$adminData->photo) }}" alt="Profile Photo">
                         <span class="d-none d-xl-inline-block ms-1">{{$adminData->name}}</span>  <!-- Display admin's name -->
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
