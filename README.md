@@ -11,21 +11,31 @@ Designed for manage and display student results efficiently. It provides an intu
 - **Admin Profile Management:** Admin can update their profile and change their password.
 
 ## Screenshots
+
 ### Dashboard
-![Dashboard](docs/images/dashboard.png)
-*Admin dashboard displaying system statistics.*
+<p align="center">
+    <img src="docs/images/dashboard.png" alt="Dashboard" width="80%">
+</p>
+<p align="center"><em>Admin dashboard displaying system statistics.</em></p>
 
 ### Student Result Page
-![Result Page](docs/images/result-page.png)
-*Academic performance.*
+<p align="center">
+    <img src="docs/images/result-page.png" alt="Result Page" width="80%">
+</p>
+<p align="center"><em>Academic performance.</em></p>
 
 ### Admin Login Page
-![Login Page](docs/images/admin-login-page.png)
-*Login page for administrators.*
+<p align="center">
+    <img src="docs/images/admin-login-page.png" alt="Login Page" width="80%">
+</p>
+<p align="center"><em>Login page for administrators.</em></p>
 
 ### Student Login Page
-![Login Page](docs/images/student-login-page.png)
-*Login page for students.*
+<p align="center">
+    <img src="docs/images/student-login-page.png" alt="Login Page" width="80%">
+</p>
+<p align="center"><em>Login page for students.</em></p>
+
 
 ## Installation
 ### Prerequisites
