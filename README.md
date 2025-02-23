@@ -80,7 +80,7 @@ Designed for manage and display student results efficiently. It provides an intu
    ```sh
    php artisan migrate
    ```
-8. Seed the database (optional):
+8. Seed the database:
    ```sh
    php artisan db:seed
    ```
