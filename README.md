@@ -12,16 +12,20 @@ Designed for manage and display student results efficiently. It provides an intu
 
 ## Screenshots
 ### Dashboard
-![Dashboard](./path-to-dashboard-image.png)
-*Note: This section will be updated soon.*
+![Dashboard](docs/images/dashboard.png)
+*Admin dashboard displaying system statistics.*
 
 ### Student Result Page
-![Result Page](./path-to-result-page.png)
-*Note: This section will be updated soon.*
+![Result Page](docs/images/result-page.png)
+*Academic performance.*
 
-### Login Page
-![Login Page](./path-to-login-image.png)
-*Note: This section will be updated soon.*
+### Admin Login Page
+![Login Page](docs/images/admin-login-page.png)
+*Login page for administrators.*
+
+### Student Login Page
+![Login Page](docs/images/student-login-page.png)
+*Login page for students.*
 
 ## Installation
 ### Prerequisites
