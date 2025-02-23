@@ -17,7 +17,7 @@ class AdminDataSeeder extends Seeder
         DB::table('users')->insert([
             "name" => "Admin",                          // Insert default admin name
             "email" => "admin@gmail.com",               // Insert default admin email
-            "photo" => "image.jpg",                     // Insert default photo file name for the admin
+            "photo" => "no_image.png",                     // Insert default photo file name for the admin
             "password" => Hash::make("password") // Hash the password for security and insert
         ]);
     }
