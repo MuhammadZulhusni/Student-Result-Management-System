@@ -1,9 +1,72 @@
-/* Add custom styles for the card background images */
-.card-decorator {
-    position: relative;
+/* Floating Action Button (FAB) */
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
 }
 
-/* Animation for the left decoration */
+.fab-button {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.fab-button:hover {
+    transform: scale(1.1);
+    background-color: #357abd;
+}
+
+/* Gradient Background */
+.chill-bg {
+    background: linear-gradient(135deg, #6b8dd6 0%, #80c3d2 100%);
+}
+
+/* Modal Styling */
+.modal-content {
+    border: none;
+    box-shadow: 0 10px 30px rgba(103, 136, 255, 0.1);
+}
+
+/* Form Input Focus */
+.form-control:focus {
+    border-color: #9ab3f5;
+    box-shadow: 0 0 8px rgba(154, 179, 245, 0.5);
+}
+
+/* Success Check Animation */
+.success-check {
+    animation: scaleUp 0.5s ease;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Success Message */
+#successMessage {
+    padding: 2rem 1rem;
+}
+
+/* Card Decoration */
+.card-decorator {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorations for Card */
 .card-decorator::before,
 .card-decorator::after {
     content: "";
@@ -12,27 +75,25 @@
     width: 30%;
     height: 30%;
     opacity: 0;
+    background-size: cover;
+    background-position: center;
     animation: fadeIn 1.5s ease-in-out forwards;
 }
 
-/* Left decoration */
+/* Left Decoration */
 .card-decorator::before {
     left: 0;
     background-image: url("/app-assets/images/elements/decore-left.png");
-    background-size: cover;
-    background-position: center;
     animation-delay: 0.5s;
 }
 
-/* Right decoration */
+/* Right Decoration */
 .card-decorator::after {
     right: 0;
     background-image: url("/app-assets/images/elements/decore-right.png");
-    background-size: cover;
-    background-position: center;
 }
 
-/* Keyframes for the fade-in animation */
+/* Fade-in Animation */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -44,14 +105,14 @@
     }
 }
 
-/* Media query to hide only the card on small screens (mobile) */
+/* Hide Cards on Small Screens */
 @media (max-width: 767px) {
     .custom-card {
         display: none !important;
     }
 }
 
-/* Animation */
+/* Zoom Animation */
 @keyframes zoom {
     0% {
         transform: scale(1);

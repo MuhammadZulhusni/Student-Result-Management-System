@@ -176,6 +176,9 @@
         <!-- Add Subject Combination -->
         <script src="{{asset('js/subject_combination.js')}}"></script>
 
+        <!-- Add Dashboard JS file -->
+        <script src="{{asset('js/dashboard.js')}}"></script>
+
         <!-- Toaster -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
