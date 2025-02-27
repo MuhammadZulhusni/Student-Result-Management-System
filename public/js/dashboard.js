@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Form
 document.getElementById("supportForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
