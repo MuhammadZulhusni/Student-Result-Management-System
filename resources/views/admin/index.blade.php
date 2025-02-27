@@ -134,7 +134,7 @@
     <!-- Floating Action Button -->
     <div class="fab-container">
         <button class="btn btn-primary btn-lg rounded-circle shadow-lg fab-button" data-bs-toggle="modal" data-bs-target="#supportModal">
-            <i class="ri-customer-service-2-line"></i>
+            <i class="ri-customer-service-2-line fs-3"></i>
         </button>
     </div>
 
@@ -156,8 +156,8 @@
                         <h4 class="text-success mb-3">Message Sent!</h4>
                         <p class="text-muted">Thank you for contacting us! We'll respond within 24 hours.</p>
                         <p class="text-muted mt-2">
-                            <i class="ri-mail-line me-1"></i>zlhsny@gmail.com<br>
-                            <i class="ri-phone-line me-1 mt-2"></i>+60182401889
+                            <i class="ri-mail-line me-1"></i>support@example.com<br>
+                            <i class="ri-phone-line me-1 mt-2"></i>+1 (555) 123-4567
                         </p>
                     </div>
                     
@@ -179,7 +179,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="supportMessage" class="form-label">Message</label>
-                            <textarea class="form-control form-control-lg" id="supportMessage" rows="4" placeholder="How can we help you?" required></textarea>
+                            <textarea class="form-control form-control-lg" id="supportMessage" 
+                                    rows="4" placeholder="How can we help you?" required></textarea>
                         </div>
                     </form>
                 </div>
@@ -193,7 +194,6 @@
             </div>
         </div>
     </div>
-</div>
 @endsection
 
 
