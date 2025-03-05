@@ -113,6 +113,7 @@
                                 <span class="input-group-text" style="background-color: rgba(42, 10, 69); color: white;">
                                     <i class="bi-camera"></i>
                                 </span>
+                                <!-- File input for uploading an image, only accepts image files. Calls previewImage(event) function when a file is selected. -->
                                 <input type="file" id="photo" name="photo" class="form-control" accept="image/*" onchange="previewImage(event)" required>
                             </div>
                         </div>
