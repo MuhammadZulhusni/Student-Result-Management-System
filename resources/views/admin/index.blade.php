@@ -125,7 +125,7 @@
                         <i class="bi bi-person-fill-check text-primary zoom-icon" style="font-size: 50px;"></i>
                     </div>
                 </div>
-                <h2 class="card-title display-4 mb-3" style="font-weight: 600; color: white; font-size: 2.75rem;">Welcome, {{ Auth::user()->name }}!</h2>
+                <h2 class="card-title display-4 mb-3" style="font-weight: 600; color: white; font-size: 2.75rem;">Welcome, {{ Auth::user()->name }}!</h2> <!-- Authenticated user: -->
                 <p class="card-text fs-5 mb-4" style="font-weight: 400; font-size: 1.5rem;">The system is ready! Start managing student results and make your workflow easier</p>
             </div>
         </div>
