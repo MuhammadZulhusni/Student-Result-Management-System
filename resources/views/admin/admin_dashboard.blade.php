@@ -184,6 +184,7 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="{{ asset('backend/assets/js/code.js') }}"></script>
 
+        <!-- Laravel Flash Message Notification with Toastr.js -->
         @if(session()->has('message'))
             <script>
                 var type = "{{ session()->get('alert-type', 'info') }}";
