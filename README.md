@@ -8,7 +8,7 @@ Designed for manage and display student results efficiently. It provides an intu
 - **Student Management:** Manage student classes, subjects, students, and results.
 - **Result Portal:** Students can view their academic performance by entering their Roll ID and selecting their class.
 - **User Authentication:** Secure login with profile management.
-- **Admin Profile Management:** Admin can update their profile and change their password.
+- **Admin Profile Management:** Admin can update their profile & change their password.
 
 ## Screenshots
 
