@@ -84,6 +84,7 @@
                         <select name="class_id" id="class_id" required
                             class="form-control w-full border-gray-300 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 p-3">
                             <option value="" disabled selected>Select Class</option>
+                            {{-- Loop through each class in the $classes collection --}}
                             @foreach($classes as $class)
                             <option value="{{ $class->id }}">{{ $class->class_name }}</option>
                             @endforeach
