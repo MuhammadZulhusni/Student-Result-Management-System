@@ -102,9 +102,28 @@ class ResultController extends Controller
 
     public function ManageResults(Request $request)
     {
-        $results = Result::groupBy('student_id')->get(); // Retrieves a collection of unique results grouped by 'student_id'                                                             
-        return view('backend.result.manage_result', compact('results')); 
+        // Eager load student relationship
+        $results = Result::with('student')->get();
+    
+        // Auto-delete any result with missing student
+        $results = $results->filter(function ($result) {
+            if (is_null($result->student)) {
+                $result->delete();
+                return false;
+            }
+            return true;
+        });
+    
+        // Group by student_id after cleanup
+        $groupedResults = $results->groupBy('student_id')->map(function ($group) {
+            return $group->first(); // keep only one record per student for display
+        });
+    
+        return view('backend.result.manage_result', [
+            'results' => $groupedResults
+        ]);
     }
+    
 
     public function EditResult($id)
     {

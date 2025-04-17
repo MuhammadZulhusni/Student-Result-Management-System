@@ -40,18 +40,22 @@
                         <td class="px-6 py-4 text-sm font-medium text-gray-900 text-center">
                             <img class="rounded-circle header-profile-user" src="{{ empty($result->student->photo)? asset('uploads/no_image.png') : asset('uploads/student_photos/' .$result->student->photo) }}" alt="Header Avatar" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
                         </td>
-                        <td class="px-6 py-4 text-sm text-gray-700">{{ $result->student->name }}</td>
-                        <td class="px-6 py-4 text-sm text-gray-700">{{ $result->student->roll_id }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-700">{{ $result->student->name ?? 'N/A' }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-700">{{ $result->student->roll_id ?? 'N/A' }}</td>
                         <td class="px-6 py-4 text-sm text-gray-700">{{ $result->student->class->class_name ?? 'N/A' }}</td> 
                         <td class="px-6 py-4 text-sm text-gray-700">{{ \Carbon\Carbon::parse($result->created_at)->format('F j, Y') }}</td>  <!-- Formats the created_at timestamp using Carbon to display it as "Month Day, Year" (e.g., March 12, 2025) -->
                         <!-- Action buttons -->
                         <td class="px-6 py-4 text-center">
+                        @if ($result->student)
                             <a href="{{ route('edit.result', $result->student->id) }}" class="btn btn-sm btn-primary me-2 transform transition-all duration-300 hover:scale-110"> 
                                 <img src="https://cdn-icons-png.flaticon.com/128/2040/2040995.png" alt="Edit" style="width: 20px; height: 20px;"/>
                             </a>
                             <a href="{{ route('delete.result', $result->student->id) }}" id="delete" class="btn btn-sm btn-danger transform transition-all duration-300 hover:scale-110">
                                 <img src="https://cdn-icons-png.flaticon.com/128/8134/8134408.png" alt="Trash" style="width: 20px; height: 20px;"/>
                             </a>
+                            @else
+                                <span class="text-red-500">No student data</span>
+                            @endif
                         </td>
                     </tr>
                 @endforeach
