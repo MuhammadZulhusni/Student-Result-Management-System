@@ -45,7 +45,7 @@
                         </td>
                         <td class="px-6 py-4 text-sm text-gray-700">{{ $student->name }}</td>
                         <td class="px-6 py-4 text-sm text-gray-700">{{ $student->roll_id }}</td>
-                        <td class="px-6 py-4 text-sm text-gray-700">{{ $student->class->class_name}}</td> <!-- Using the 'class' relationship to fetch the associated class name -->
+                        <td class="px-6 py-4 text-sm text-gray-700">{{ $student->class->class_name ?? 'N/A' }}</td> <!-- Using the 'class' relationship to fetch the associated class name -->
                         <td class="px-6 py-4 text-sm text-gray-700">{{ \Carbon\Carbon::parse($student->created_at)->format('F j, Y') }}</td>
                         <td class="px-6 py-4 text-sm text-gray-700">{{ $student->status }}</td> <!-- Display student status (active/inactive) -->
                         <!-- Action buttons -->

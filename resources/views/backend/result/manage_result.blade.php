@@ -42,7 +42,7 @@
                         </td>
                         <td class="px-6 py-4 text-sm text-gray-700">{{ $result->student->name }}</td>
                         <td class="px-6 py-4 text-sm text-gray-700">{{ $result->student->roll_id }}</td>
-                        <td class="px-6 py-4 text-sm text-gray-700">{{ $result->student->class->class_name}}</td> 
+                        <td class="px-6 py-4 text-sm text-gray-700">{{ $result->student->class->class_name ?? 'N/A' }}</td> 
                         <td class="px-6 py-4 text-sm text-gray-700">{{ \Carbon\Carbon::parse($result->created_at)->format('F j, Y') }}</td>  <!-- Formats the created_at timestamp using Carbon to display it as "Month Day, Year" (e.g., March 12, 2025) -->
                         <!-- Action buttons -->
                         <td class="px-6 py-4 text-center">
