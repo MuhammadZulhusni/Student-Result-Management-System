@@ -65,22 +65,25 @@
                                 <i class="ri-book-line me-2"></i>Subjects and Marks
                             </label>
                             <div id="subject-list" class="border p-3 rounded">
-                            <!-- Loop through each result in the $result array -->
                                 @for ($i = 0; $i < $count; $i++)
                                 <div class="d-flex align-items-center gap-3 p-3 mb-3 border border-gray-300 rounded shadow-sm">
                                     <div class="flex-grow-1">
-                                        <h6 class="text-sm fw-semibold text-purple-700 mb-1">{{ $result[$i]->subject->subject_name }}</h6> <!-- Display the subject name of the current result -->
+                                        <!-- Safely display subject name or 'N/A' -->
+                                        <h6 class="text-sm fw-semibold text-purple-700 mb-1">
+                                            {{ $result[$i]->subject->subject_name ?? 'N/A (Subject Deleted)' }}
+                                        </h6>
                                         <p class="text-xs text-muted">Enter marks for this subject</p>
                                     </div>
-                                    <input type="hidden" name="result_ids[]" value="{{ $result[$i]->id }}">  <!-- Hidden input to store the result ID for updating -->
-                                    <input type="hidden" name="subject_ids[]" value="{{ $result[$i]->subject->id }}">  <!-- Hidden input to store the subject ID of the current result -->
+                                    <!-- Use subject_id directly from result (NOT via relationship) -->
+                                    <input type="hidden" name="result_ids[]" value="{{ $result[$i]->id }}">
+                                    <input type="hidden" name="subject_ids[]" value="{{ $result[$i]->subject_id }}"> 
                                     <input type="number" name="marks[]" class="form-control w-25 shadow-sm" 
-                                        placeholder="Marks (out of 100)" value="{{ $result[$i]->marks }}" required>  <!-- Input field for entering marks, pre-filled with the current result's marks -->
+                                        placeholder="Marks (out of 100)" value="{{ $result[$i]->marks }}" required>
                                 </div>
                                 @endfor
                             </div>
                         </div>
-
+                        
                         <!-- Action Button -->
                         <div class="text-center mt-4">
                             <button type="submit" class="btn fw-bold w-100 py-2 shadow" 
