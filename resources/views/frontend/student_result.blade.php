@@ -23,7 +23,6 @@
         <div class="text-center mb-8">
             <div class="flex justify-center mb-5">
                 <div class="relative">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-400 to-purple-500 rounded-full blur-lg opacity-30"></div>
                     <img class="w-36 h-36 rounded-full shadow-xl object-cover border-4 border-white ring-2 ring-blue-100" 
                         src="{{ empty($result[0]->student->photo) ? asset('uploads/no_image.png') : asset('uploads/student_photos/' . $result[0]->student->photo) }}" 
                         alt="Student Photo">
