@@ -65,10 +65,18 @@
                                 </div> 
 
                                 <!-- Image Preview -->
+                                @php
+                                    $photo = $adminData->photo;
+                                    $photoPath = public_path('uploads/admin_profiles/' . $photo);
+                                    $imageUrl = (!empty($photo) && file_exists($photoPath)) 
+                                        ? asset('uploads/admin_profiles/' . $photo) 
+                                        : asset('uploads/no_image.png');
+                                @endphp
+
                                 <!-- Displays the admin's profile picture. If no picture is available, a default 'no_image.png' is shown. -->
                                 <div class="mt-3 text-center">
                                     <p class="text-muted mt-2">This is your current profile picture. Upload a new one to update.</p>
-                                    <img id="ShowImage" src="{{ empty($adminData->photo)? asset('uploads/no_image.png') : asset('uploads/admin_profiles/' .$adminData->photo) }}" alt="avatar-4" class="rounded avatar-md">
+                                    <img id="ShowImage" src="{{ $imageUrl }}" alt="avatar-4" class="rounded avatar-md">
                                 </div>
                             </div>
                         </div>

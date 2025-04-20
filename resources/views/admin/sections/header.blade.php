@@ -36,8 +36,16 @@
                 <!-- User Dropdown -->
                 <div class="dropdown d-inline-block user-dropdown ms-3">
                     <button type="button" class="btn header-item waves-effect text-white" id="page-header-user-dropdown" data-bs-toggle="dropdown">
+                        @php
+                            $photo = $adminData->photo;
+                            $photoPath = public_path('uploads/admin_profiles/' . $photo);
+                            $imageUrl = (!empty($photo) && file_exists($photoPath)) 
+                                ? asset('uploads/admin_profiles/' . $photo) 
+                                : asset('uploads/no_image.png');
+                        @endphp
+
                         <!-- Display admin's profile photo, fallback to 'no_image.png' if not set -->
-                        <img class="rounded-circle header-profile-user" src="{{ empty($adminData->photo)? asset('uploads/no_image.png') : asset('uploads/admin_profiles/' .$adminData->photo) }}" alt="Profile Photo">
+                        <img class="rounded-circle header-profile-user" src="{{ $imageUrl }}" alt="Profile Photo">
                         <span class="d-none d-xl-inline-block ms-1">{{$adminData->name}}</span>  <!-- Display admin's name -->
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>

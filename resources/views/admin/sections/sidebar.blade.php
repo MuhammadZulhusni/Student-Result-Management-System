@@ -8,7 +8,16 @@
         <div class="user-profile text-center mt-3">
             <div>
                 <!-- Display admin's profile photo, fallback to 'no_image.png' if not set -->
-                <img src="{{ empty($adminData->photo) ? asset('uploads/no_image.png') : asset('uploads/admin_profiles/' . $adminData->photo) }}" alt="User Avatar" class="avatar-md rounded-circle border border-white">
+                @php
+                    $photo = $adminData->photo;
+                    $photoPath = public_path('uploads/admin_profiles/' . $photo);
+                    $imageUrl = (!empty($photo) && file_exists($photoPath)) 
+                        ? asset('uploads/admin_profiles/' . $photo) 
+                        : asset('uploads/no_image.png');
+                @endphp
+
+                <img src="{{ $imageUrl }}" alt="User Avatar" class="avatar-md rounded-circle border border-white">
+
             </div>
             <div class="mt-3">
                 <h4 class="font-size-16 mb-1 text-white">{{ $adminData->name }}</h4>                         <!-- Display admin's name -->
