@@ -48,7 +48,7 @@
 <body class="bg-gray-50 h-screen flex items-center justify-center">
 
     <!-- Background -->
-    <div class="absolute inset-0" style="background-image: url('https://wallpapercrafter.com/desktop1/611645-accomplishment-ceremony-education-graduation-group.jpg'); background-size: cover; background-position: center;">
+    <div class="absolute inset-0" style="background-image: url('{{ asset('uploads/bg2.jpg') }}'); background-size: cover; background-position: center;">
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     </div>
 
