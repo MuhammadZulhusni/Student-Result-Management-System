@@ -12,10 +12,10 @@
             <!-- Logo and Title Centered -->
             <div class="navbar-brand-box mx-auto ms-2">
                 <a href="/dashboard" class="logo d-flex align-items-center justify-content-center">
-                    <img src="https://cdn-icons-png.flaticon.com/128/15175/15175827.png" 
-                         alt="logo-sm-light" 
-                         class="me-3 rounded-circle shadow-sm" 
-                         height="40">
+                    <img src="{{ asset('uploads/logo.png') }}" 
+                        alt="logo-sm-light" 
+                        class="me-3 rounded-circle shadow-sm" 
+                        height="40">
                     <span class="fw-bold fs-3 text-white">SRMS</span>
                 </a>
             </div>
