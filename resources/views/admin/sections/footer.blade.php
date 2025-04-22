@@ -2,7 +2,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                <script>document.write(new Date().getFullYear())</script> © SRMS.
+                <script>
+                // Get the current year and write it to the document
+                document.write(new Date().getFullYear())
+                </script> © SRMS. 
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
