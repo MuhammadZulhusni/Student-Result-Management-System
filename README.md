@@ -3,6 +3,12 @@
 ## Overview
 Designed for manage and display student results efficiently. It provides an intuitive dashboard for administrators and a student-friendly portal for result retrieval.
 
+## Live Demo
+You can try the deployed version of the project here:
+
+- 🌐 [Live Site](https://student-result-management-system.laravel.cloud/)
+- 🔐 [Admin Login](https://student-result-management-system.laravel.cloud/login)
+
 ## Features
 - **Admin Dashboard:** View statistics on total students, total subjects, total classes, and total results.
 - **Student Management:** Manage student classes, subjects, students, and results.
@@ -36,7 +42,6 @@ Designed for manage and display student results efficiently. It provides an intu
 </p>
 <p align="center"><em>Login page for students.</em></p>
 
-
 ## Installation
 ### Prerequisites
 - PHP (>=8.0)
@@ -50,7 +55,7 @@ Designed for manage and display student results efficiently. It provides an intu
 1. Clone the repository:
    ```sh
    git clone https://github.com/MuhammadZulhusni/Student-Result-Management-System.git
-   ```
+
 2. Navigate to the project directory:
    ```sh
    cd Student-Result-Management-System
