@@ -4,7 +4,7 @@
 @php
     $totalStudent = count(App\Models\Student::all());
     $totalSubject = count(App\Models\Subject::all());
-    $totalClasses = count(App\Models\classes::all());
+    $totalClasses = count(App\Models\Classe::all());
     $totalResult = count(App\Models\Result::groupBy('student_id')->get()); // Counts the total number of unique students who have results by grouping the results by 'student_id'
 @endphp
 
