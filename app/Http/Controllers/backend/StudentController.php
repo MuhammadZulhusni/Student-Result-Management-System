@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Models\Result;
-use App\Models\classes;
+use App\Models\Classes;  // Try tukar ni jp and deploy
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
