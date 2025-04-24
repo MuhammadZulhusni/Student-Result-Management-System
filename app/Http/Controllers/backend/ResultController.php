@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Models\Result;
-use App\Models\classes;
+use App\Models\Classe;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,7 +12,7 @@ class ResultController extends Controller
 {
     public function AddResult()
     {
-        $classes = classes::all();
+        $classes = Classe::all();
         return view('backend.result.add_result_view', compact('classes'));  // Displays the 'add_result_view' page for adding result
     }
 
@@ -33,7 +33,7 @@ class ResultController extends Controller
         }
     
         // Fetches the class and its associated subjects
-        $class = classes::with('subjects')->where('id',  $class_id)->first();
+        $class = Classe::with('subjects')->where('id',  $class_id)->first();
         $class_subjects = $class->subjects;
     
         // Initializes an empty array to hold subject data

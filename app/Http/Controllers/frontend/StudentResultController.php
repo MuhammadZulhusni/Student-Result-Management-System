@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Models\Result;
-use App\Models\classes;
+use App\Models\Classe;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,7 +12,7 @@ class StudentResultController extends Controller
 {
     public function index()
     {
-        $classes = classes::all();
+        $classes = Classe::all();
         return view('frontend.index', compact('classes'));
     }
 

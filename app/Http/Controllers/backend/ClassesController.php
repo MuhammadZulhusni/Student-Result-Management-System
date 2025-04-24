@@ -4,7 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\classes;
+use App\Models\Classe;
 
 class ClassesController extends Controller
 {
@@ -15,7 +15,7 @@ class ClassesController extends Controller
 
     public function StoreClass(Request $request)
     {
-        $class = New classes();                                                // Create a new instance of the Classes model
+        $class = New Classe();                                                // Create a new instance of the Classes model
         $class->class_name = $request->class_name;                             // Assign the class name from the request
         $class->section = $request->section;                                   // Assign the section from the request
         $class->save();                                                        // Save the new class record to the database
@@ -31,13 +31,13 @@ class ClassesController extends Controller
 
     public function ManageClasses(Request $request)
     {
-        $classes = classes::all();                                                                  // Retrieve all class records from the database
+        $classes = Classe::all();                                                                  // Retrieve all class records from the database
         return view('backend.class.manage_classes_view', compact('classes')); // Pass the class data to the view | 'classes' is the variable name.
     }
 
     public function EditClass($id)
     {
-        $class = classes::find($id);                                                        // Retrieve the class with the specified ID
+        $class = Classe::find($id);                                                        // Retrieve the class with the specified ID
         // echo $class;
         return view('backend.class.edit_class_view', compact('class'));   // Return the edit view with class data
     }
@@ -47,7 +47,7 @@ class ClassesController extends Controller
     public function UpdateClass(Request $request)
     {
         $id = $request->id;
-        classes::find($id)->update([          // Find the class by ID and update its details
+        Classe::find($id)->update([          // Find the class by ID and update its details
             'class_name' => $request->class_name, // Update the class name
             'section' => $request->section        // Update the section
         ]);
@@ -64,7 +64,7 @@ class ClassesController extends Controller
     // Deletes a class record from the database
     public function DeleteClass($id)
     {
-        classes::find($id)->delete();                                      // Finds the class by its ID and removes it from the 'classes' table
+        Classe::find($id)->delete();                                      // Finds the class by its ID and removes it from the 'classes' table
 
 
         // Notification message

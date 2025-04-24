@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Models\classes;
+use App\Models\Classe;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -82,7 +82,7 @@ class SubjectController extends Controller
         // Subject Combination All Methods
         public function AddSubjectCombination()
         {
-            $classes = classes::all();
+            $classes = Classe::all();
             $subjects = Subject::all();
             return view('backend.subject.add_subject_combination_view', compact('classes', 'subjects'));
         }
@@ -90,7 +90,7 @@ class SubjectController extends Controller
         // Method to store subject combinations for a class
         public function StoreSubjectCombination(Request $request)
         {
-            $class = classes::find($request->class_id);             // Retrieve the specific class using the class_id from the request in view
+            $class = Classe::find($request->class_id);             // Retrieve the specific class using the class_id from the request in view
             $subjects = $request->subject_ids;                          // Retrieve the array of subject IDs from the request
             $class->subjects()->attach($subjects);                      // Attach the subjects to the class (adds records to the pivot table)
 
