@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Models\Result;
-use App\Models\classes; 
+use App\Models\Classe; 
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,7 +12,7 @@ class StudentController extends Controller
 {
     public function AddStudent()
     {
-        $classes = classes::get();
+        $classes = Classe::get();
         return view('backend.student.add_student_view', compact('classes'));
     }
 
@@ -53,7 +53,7 @@ class StudentController extends Controller
 
     public function EditStudent($id)
     {
-        $classes = classes::all(); 
+        $classes = Classe::all(); 
         $student = Student::find($id);                                                           
         // echo $student;
         return view('backend.student.edit_student_view', compact('student', 'classes'));   
