@@ -41,7 +41,7 @@
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1">
                             <h6 class="text-uppercase text-muted mb-2">Students</h6>
-                            <h2 class="mb-0 count-up" data-target="{{ $totalStudent }}">0</h2>
+                            <h2 class="mb-0 count-up" data-target="{{ $totalStudent }}">{{ $totalStudent }}</h2>
                         </div>
                         <div class="stat-icon bg-soft-primary pulse-animation">
                             <i class="ri-group-2-fill text-primary"></i>
@@ -61,7 +61,7 @@
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1">
                             <h6 class="text-uppercase text-muted mb-2">Subjects</h6>
-                            <h2 class="mb-0 count-up" data-target="{{ $totalSubject }}">0</h2>
+                            <h2 class="mb-0 count-up" data-target="{{ $totalSubject }}">{{ $totalSubject }}</h2>
                         </div>
                         <div class="stat-icon bg-soft-info pulse-animation">
                             <i class="ri-book-2-fill text-info"></i>
@@ -81,7 +81,7 @@
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1">
                             <h6 class="text-uppercase text-muted mb-2">Classes</h6>
-                            <h2 class="mb-0 count-up" data-target="{{ $totalClasses }}">0</h2>
+                            <h2 class="mb-0 count-up" data-target="{{ $totalClasses }}">{{ $totalClasses }}</h2>
                         </div>
                         <div class="stat-icon bg-soft-warning pulse-animation">
                             <i class="ri-building-4-fill text-warning"></i>
@@ -101,7 +101,7 @@
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1">
                             <h6 class="text-uppercase text-muted mb-2">Results</h6>
-                            <h2 class="mb-0 count-up" data-target="{{ $totalResult }}">0</h2>
+                            <h2 class="mb-0 count-up" data-target="{{ $totalResult }}">{{ $totalResult }}</h2>
                         </div>
                         <div class="stat-icon bg-soft-success pulse-animation">
                             <i class="ri-file-chart-2-fill text-success"></i>
