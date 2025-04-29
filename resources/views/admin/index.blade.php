@@ -199,6 +199,222 @@
             </div>
         </div>
     </div>
-
 </div>
 @endsection
+
+<script>
+// Count-up animation for statistics
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate numbers counting up
+    const countUpElements = document.querySelectorAll('.count-up');
+    const progressBars = document.querySelectorAll('.progress-bar');
+    
+    const animateCountUp = (element) => {
+        const target = parseInt(element.getAttribute('data-target'));
+        const duration = 1500;
+        const step = target / (duration / 16);
+        
+        let current = 0;
+        const increment = () => {
+            current += step;
+            if (current < target) {
+                element.textContent = Math.floor(current);
+                requestAnimationFrame(increment);
+            } else {
+                element.textContent = target;
+            }
+        };
+        increment();
+    };
+    
+    // Animate progress bars
+    const animateProgressBars = (element) => {
+        const targetWidth = element.getAttribute('data-target');
+        element.style.width = targetWidth + '%';
+    };
+    
+    // Intersection Observer to trigger animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target.classList.contains('count-up')) {
+                    animateCountUp(entry.target);
+                }
+                if (entry.target.classList.contains('progress-bar')) {
+                    animateProgressBars(entry.target);
+                }
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    countUpElements.forEach(element => observer.observe(element));
+    progressBars.forEach(element => observer.observe(element));
+    
+    // Support form submission
+    const supportForm = document.getElementById('supportForm');
+    if (supportForm) {
+        supportForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = document.querySelector('#supportForm button[type="submit"]');
+            const submitText = document.getElementById('submitText');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Show loading state
+            submitText.textContent = 'Sending...';
+            loadingSpinner.style.display = 'inline-block';
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Hide form and show success message
+                supportForm.style.display = 'none';
+                document.getElementById('formFooter').style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // Reset form after 5 seconds
+                setTimeout(() => {
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('supportModal'));
+                    modal.hide();
+                    supportForm.reset();
+                    supportForm.style.display = 'block';
+                    document.getElementById('formFooter').style.display = 'block';
+                    successMessage.style.display = 'none';
+                    submitText.textContent = 'Send Message';
+                    loadingSpinner.style.display = 'none';
+                }, 5000);
+            }, 2000);
+        });
+    }
+});
+</script>
+
+<style>
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hide Cards on Small Screens */
+@media (max-width: 767px) {
+    .custom-card {
+        display: none !important;
+    }
+}
+
+/* Zoom Animation */
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.zoom-icon {
+    animation: zoom 4s infinite ease-in-out;
+}
+
+/* Base Styles */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 16px;
+}
+
+/* Hover Effects */
+.hover-lift-sm:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-grow:hover {
+    transform: scale(1.02);
+}
+
+.hover-bounce:hover {
+    animation: bounce 0.5s;
+}
+
+/* Animations */
+.floating-card {
+    animation: floating 6s ease-in-out infinite;
+}
+
+.floating-text {
+    animation: floating 3s ease-in-out infinite;
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+.zoom-icon {
+    transition: transform 0.3s ease;
+}
+.zoom-icon:hover {
+    transform: scale(1.2);
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Progress Bar Animation */
+.progress-bar-animated {
+    transition: width 1.5s ease-out;
+}
+
+/* Floating Action Button */
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.fab-button {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.fab-button:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+</style>
