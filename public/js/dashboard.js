@@ -66,3 +66,88 @@ $("#supportModal").on("hidden.bs.modal", function () {
     document.getElementById("formFooter").style.display = "block"; // Show footer again
     document.getElementById("successMessage").style.display = "none"; // Hide success message
 });
+
+// Count-up animation for statistics
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate numbers counting up
+    const countUpElements = document.querySelectorAll('.count-up');
+    const progressBars = document.querySelectorAll('.progress-bar');
+    
+    const animateCountUp = (element) => {
+        const target = parseInt(element.getAttribute('data-target'));
+        const duration = 1500;
+        const step = target / (duration / 16);
+        
+        let current = 0;
+        const increment = () => {
+            current += step;
+            if (current < target) {
+                element.textContent = Math.floor(current);
+                requestAnimationFrame(increment);
+            } else {
+                element.textContent = target;
+            }
+        };
+        increment();
+    };
+    
+    // Animate progress bars
+    const animateProgressBars = (element) => {
+        const targetWidth = element.getAttribute('data-target');
+        element.style.width = targetWidth + '%';
+    };
+    
+    // Intersection Observer to trigger animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target.classList.contains('count-up')) {
+                    animateCountUp(entry.target);
+                }
+                if (entry.target.classList.contains('progress-bar')) {
+                    animateProgressBars(entry.target);
+                }
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    countUpElements.forEach(element => observer.observe(element));
+    progressBars.forEach(element => observer.observe(element));
+    
+    // Support form submission
+    const supportForm = document.getElementById('supportForm');
+    if (supportForm) {
+        supportForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = document.querySelector('#supportForm button[type="submit"]');
+            const submitText = document.getElementById('submitText');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Show loading state
+            submitText.textContent = 'Sending...';
+            loadingSpinner.style.display = 'inline-block';
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Hide form and show success message
+                supportForm.style.display = 'none';
+                document.getElementById('formFooter').style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // Reset form after 5 seconds
+                setTimeout(() => {
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('supportModal'));
+                    modal.hide();
+                    supportForm.reset();
+                    supportForm.style.display = 'block';
+                    document.getElementById('formFooter').style.display = 'block';
+                    successMessage.style.display = 'none';
+                    submitText.textContent = 'Send Message';
+                    loadingSpinner.style.display = 'none';
+                }, 5000);
+            }, 2000);
+        });
+    }
+});
