@@ -56,7 +56,7 @@
                         <a class="dropdown-item text-white" href="{{ route('admin.password.change') }}"><i class="ri-settings-2-line align-middle me-2"></i>Change Password</a>
                         <div class="dropdown-divider bg-white"></div>
                         <!-- "Logout" item will have the red color, even on hover -->
-                        <a class="dropdown-item text-danger" href="{{route('admin.logout')}}"> <!-- Link to log out the admin -->
+                        <a class="dropdown-item text-danger" href="#" id="logoutButton">
                             <i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout
                         </a>
                     </div>
@@ -65,3 +65,30 @@
         </div>
     </div>
 </header>
+
+<Script>
+// Sweet alert for logout
+document.getElementById('logoutButton').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You'll be logged out of the system",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, logout!',
+        cancelButtonText: 'Cancel',
+        reverseButtons: true,
+        customClass: {
+            confirmButton: 'swal2-confirm',
+            cancelButton: 'swal2-cancel'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "{{ route('admin.logout') }}";
+        }
+    });
+});
+</Script>
