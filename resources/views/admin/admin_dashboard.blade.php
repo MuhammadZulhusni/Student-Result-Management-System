@@ -190,6 +190,11 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="{{ asset('backend/assets/js/code.js') }}"></script>
 
+        <!-- Include SweetAlert2 CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+        <!-- Include SweetAlert2 JS -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         <!-- Laravel Flash Message Notification with Toastr.js -->
         @if(session()->has('message'))
             <script>
