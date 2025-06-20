@@ -14,6 +14,6 @@ class Student extends Model
     public function class(): BelongsTo
     {
         // This method defines an inverse one-to-many relationship between the student model and the 'Classes' model.
-        return $this->belongsTo(Classes::class, 'class_id', 'id');
+        return $this->belongsTo(Classe::class, 'class_id', 'id');
     }
 }

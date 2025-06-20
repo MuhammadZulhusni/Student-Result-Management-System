@@ -14,11 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(AdminDataSeeder::class);   // Call the AdminDataSeeder to insert admin data into the database
-        // User::factory(10)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call(ClasseSeeder::class);
+        $this->call(SubjectSeeder::class);
+        $this->call(StudentSeeder::class);
     }
 }

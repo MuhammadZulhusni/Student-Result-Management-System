@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class classes extends Model
+class Classe extends Model
 {
     use HasFactory;
     protected $guarded = []; // Disable mass-assignment protection for all fields

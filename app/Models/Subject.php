@@ -15,6 +15,6 @@ class Subject extends Model
     public function classes(): BelongsToMany
     {
         // Return the relationship using the pivot table 'classes_subject' & Include the 'status' column from the pivot table in queries
-        return $this->belongsToMany(classes::class, 'classes_subject', 'subject_id', 'classes_id')->withPivot('status');
+        return $this->belongsToMany(Classe::class, 'classes_subject', 'subject_id', 'classes_id')->withPivot('status');
     }
 }
