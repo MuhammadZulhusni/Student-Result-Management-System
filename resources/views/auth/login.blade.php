@@ -65,6 +65,13 @@
                 @enderror
             </div>
 
+            <!-- Forgot Password -->
+            <div class="text-right mt-4">
+                <a href="{{ route('password.request') }}" class="text-sm text-purple-600 hover:underline">
+                    Forgot your password?
+                </a>
+            </div>
+
             <!-- Submit Button -->
             <div class="d-grid mt-6">
                 <button type="submit" class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 flex items-center justify-center">
