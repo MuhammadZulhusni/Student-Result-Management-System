@@ -6,8 +6,8 @@ Designed for manage and display student results efficiently. It provides an intu
 ## Live Demo
 You can try the deployed version of the project here:
 
-- 🌐 [Live Site](https://student-result-management-system.laravel.cloud/)
-- 🔐 [Admin Login](https://student-result-management-system.laravel.cloud/login)
+- 🌐 [Student Login](https://srms.get-virtual-admin.com/)
+- 🔐 [Admin Login](https://srms.get-virtual-admin.com/login)
 
 ## Features
 - **Admin Dashboard:** View statistics on total students, total subjects, total classes, and total results.
